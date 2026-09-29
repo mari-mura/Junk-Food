@@ -130,8 +130,6 @@ GameObject:
   - component: {fileID: 330482115}
   - component: {fileID: 330482116}
   - component: {fileID: 330482119}
-  - component: {fileID: 330482118}
-  - component: {fileID: 330482117}
   m_Layer: 0
   m_Name: playerTest
   m_TagString: Untagged
@@ -214,52 +212,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &330482117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330482114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80dfb4e8b6162784a89634b91d0cdcfd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TapHoldDetector
-  buttons:
-  - Name: South
-    ActionReference: {fileID: 0}
-    BindingPath: <Gamepad>/buttonSouth
-    KeyboardBindingPath: <Keyboard>/s
-  - Name: East
-    ActionReference: {fileID: 0}
-    BindingPath: <Gamepad>/buttonEast
-    KeyboardBindingPath: <Keyboard>/d
-  - Name: West
-    ActionReference: {fileID: 0}
-    BindingPath: <Gamepad>/buttonWest
-    KeyboardBindingPath: <Keyboard>/a
-  - Name: North
-    ActionReference: {fileID: 0}
-    BindingPath: <Gamepad>/buttonNorth
-    KeyboardBindingPath: <Keyboard>/w
-  holdThreshold: 0.25
-  chordWindow: 0.04
-  maxChordSize: 2
---- !u!114 &330482118
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330482114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5f5eaf4b790b7f47a524b03280c1e53, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TapHoldReceiver
-  detector: {fileID: 330482117}
-  logToConsole: 1
 --- !u!114 &330482119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,10 +224,56 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63af4c83f40265946bd893f6da1e5d03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerJump
-  receiver: {fileID: 330482118}
+  receiver: {fileID: 718695072}
   jumpOffset: {x: 2, y: 0, z: 0}
   jumpPower: 2
   jumpDuration: 1
+--- !u!1 &718695070
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 718695071}
+  - component: {fileID: 718695072}
+  m_Layer: 0
+  m_Name: InputReceiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &718695071
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718695070}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.53, y: -2.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &718695072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 718695070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5f5eaf4b790b7f47a524b03280c1e53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TapHoldReceiver
+  detector: {fileID: 1999037437}
+  logToConsole: 1
 --- !u!1 &1909538790
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,9 +366,75 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1999037435
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1999037436}
+  - component: {fileID: 1999037437}
+  m_Layer: 0
+  m_Name: InputDetector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1999037436
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999037435}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.53, y: -2.16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1999037437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999037435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80dfb4e8b6162784a89634b91d0cdcfd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TapHoldDetector
+  buttons:
+  - Name: South
+    ActionReference: {fileID: 0}
+    BindingPath: <Gamepad>/buttonSouth
+    KeyboardBindingPath: <Keyboard>/s
+  - Name: East
+    ActionReference: {fileID: 0}
+    BindingPath: <Gamepad>/buttonEast
+    KeyboardBindingPath: <Keyboard>/d
+  - Name: West
+    ActionReference: {fileID: 0}
+    BindingPath: <Gamepad>/buttonWest
+    KeyboardBindingPath: <Keyboard>/a
+  - Name: North
+    ActionReference: {fileID: 0}
+    BindingPath: <Gamepad>/buttonNorth
+    KeyboardBindingPath: <Keyboard>/w
+  holdThreshold: 0.25
+  chordWindow: 0.04
+  maxChordSize: 2
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 1909538793}
   - {fileID: 330482115}
+  - {fileID: 1999037436}
+  - {fileID: 718695071}
