@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class PlayerAnimation : StateMachineBehaviour
 {
@@ -32,3 +32,4 @@ public class PlayerAnimation : StateMachineBehaviour
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
 }
+*/
