@@ -8,5 +8,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/TB_Overworld.unity
+    guid: e74b4260f7b2cae4abd30771add4d0ed
+  - enabled: 1
+    path: Assets/Scenes/TB_Level1.unity
+    guid: 8a8a57477353f1e4bb1625dfbaceceab
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
