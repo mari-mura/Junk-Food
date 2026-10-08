@@ -36,15 +36,13 @@ public class DoJumpTestNew : MonoBehaviour
     private void HandleTap(PressInfo pressInfo)
     {
         if (!CanJump) return;
-        Debug.Log("Started Short Jump");
         StartJump(1, jumpDuration);
     }
 
     private void HandleHold(PressInfo pressInfo)
     {
         if (!CanJump) return;
-        Debug.Log("Started Long Jump");
-        StartJump(2, 2f);
+        StartJump(1, 2f);
     }
 
     private void StartJump(int steps, float duration)
@@ -55,12 +53,6 @@ public class DoJumpTestNew : MonoBehaviour
         timing = new JumpTimingTracker();
         Sequence jump = transform.DOJump(target, jumpPower, 1, duration);
         timing.Track(jump);
-
-        if (point == null)
-        {
-            Debug.LogWarning("Destination has no JumpPoint component, skipping timing check");
-            return;
-        }
 
         pendingPoint = point;
         point.Succeeded += OnPointSucceeded;
@@ -76,7 +68,7 @@ public class DoJumpTestNew : MonoBehaviour
 
     private void OnPointFailed(JumpPoint point)
     {
-        Debug.Log("Missed the timing");
+        Debug.Log("Missed");
         Resolve(point);
     }
 

@@ -22,11 +22,10 @@ public abstract class JumpPoint : MonoBehaviour
         OnActivate();
     }
 
-    protected abstract void OnActivate();
-    protected abstract void OnDeactivate();
-
-    // inputTime = when the player actually pressed/released (input-system time)
-    protected void Judge(double inputTime)
+    public abstract void OnActivate();
+    public abstract void OnDeactivate();
+    
+    public void Judge(double inputTime)
     {
         float latency = (float)(InputState.currentTime - inputTime);
         LastOffset = tracker.GetOffset() - latency;
@@ -34,19 +33,19 @@ public abstract class JumpPoint : MonoBehaviour
         if (Mathf.Abs(LastOffset) <= timingWindow) Succeed(); else Fail();
     }
 
-    protected virtual void Update()
+    public virtual void Update()
     {
         if (active && tracker.GetOffset() > timingWindow) Fail();
     }
 
-    protected void Succeed()
+    public void Succeed()
     {
         if (!active) return;
         End();
         Succeeded?.Invoke(this);
     }
 
-    protected void Fail()
+    public void Fail()
     {
         if (!active) return;
         End();
