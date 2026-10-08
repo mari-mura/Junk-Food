@@ -10,13 +10,14 @@ public class NodePath
     private int direction = 1;
 
     public Vector3 CurrentPosition => nodes[currentIndex].position;
+    public JumpPoint CurrentPoint => nodes[currentIndex].GetComponent<JumpPoint>();
 
     public void ResetToStart()
     {
         currentIndex = 0;
         direction = 1;
     }
-    
+
     public Vector3 Advance(int steps)
     {
         for (int i = 0; i < steps; i++)

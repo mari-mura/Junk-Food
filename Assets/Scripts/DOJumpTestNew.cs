@@ -5,11 +5,15 @@ using PressInfo = TapHoldDetector.PressInfo;
 public class DoJumpTestNew : MonoBehaviour
 {
     [SerializeField] private TapHoldDetector detector;
+
     [SerializeField] private NodePath path;
     [SerializeField] private float jumpPower = 2f;
     [SerializeField] private float jumpDuration = 0.8f;
 
-    private readonly JumpTimingTracker timing = new JumpTimingTracker();
+    private JumpTimingTracker timing = new JumpTimingTracker();
+    private JumpPoint pendingPoint;
+
+    private bool CanJump => !timing.IsJumping && pendingPoint == null;
 
     private void Start()
     {
@@ -19,52 +23,59 @@ public class DoJumpTestNew : MonoBehaviour
 
     private void OnEnable()
     {
-        detector.ButtonDown += HandleButtonDown;
         detector.TapReleased += HandleTap;
-        detector.HoldEnded += HandleReleased;
         detector.HoldStarted += HandleHold;
     }
 
     private void OnDisable()
     {
-        detector.ButtonDown -= HandleButtonDown;
         detector.TapReleased -= HandleTap;
-        detector.HoldEnded -= HandleReleased;
         detector.HoldStarted -= HandleHold;
     }
 
     private void HandleTap(PressInfo pressInfo)
     {
-        if (!timing.IsJumping)
-        {
-            Debug.Log("Started Short Jump");
-            StartJump(1, jumpDuration);
-        }
+        if (!CanJump) return;
+        StartJump(1, jumpDuration);
     }
 
     private void HandleHold(PressInfo pressInfo)
     {
-        if (!timing.IsJumping)
-        {
-            Debug.Log("Started Long Jump");
-            StartJump(2, 2f);
-        }
-    }
-
-    private void HandleButtonDown(string buttonName, double time)
-    {
-        timing.ReportRelease();
-    }
-
-    private void HandleReleased(PressInfo pressInfo)
-    {
-        timing.ReportRelease();
+        if (!CanJump) return;
+        StartJump(1, 2f);
     }
 
     private void StartJump(int steps, float duration)
     {
         Vector3 target = path.Advance(steps);
+        JumpPoint point = path.CurrentPoint;
+
+        timing = new JumpTimingTracker();
         Sequence jump = transform.DOJump(target, jumpPower, 1, duration);
         timing.Track(jump);
+
+        pendingPoint = point;
+        point.Succeeded += OnPointSucceeded;
+        point.Failed += OnPointFailed;
+        point.Activate(timing, detector);
+    }
+
+    private void OnPointSucceeded(JumpPoint point)
+    {
+        Debug.Log($"Good ({point.LastOffset:+0.000;-0.000}s)");
+        Resolve(point);
+    }
+
+    private void OnPointFailed(JumpPoint point)
+    {
+        Debug.Log("Missed");
+        Resolve(point);
+    }
+
+    private void Resolve(JumpPoint point)
+    {
+        point.Succeeded -= OnPointSucceeded;
+        point.Failed -= OnPointFailed;
+        pendingPoint = null;
     }
 }
