@@ -8,6 +8,8 @@ public class Collector : MonoBehaviour
         if (item != null)
         {
             item.Collect();
+            Debug.Log("Touched: " + collision.name);
         }
+        
     }
 }
