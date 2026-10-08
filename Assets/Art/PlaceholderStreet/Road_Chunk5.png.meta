@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 8541060d51dd64e2aa3dd498add0c4d0
+guid: f4a7afa173661e74bb892b35f564a52b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5241148404775406951
-    second: Crank_v1_placeholder_0
+      213: -2933367580249006822
+    second: Road_Chunk5_0
+  - first:
+      213: -6382742525306683472
+    second: Road_Chunk5_1
+  - first:
+      213: 2570355315075472801
+    second: Road_Chunk5_2
+  - first:
+      213: 7424106331977875381
+    second: Road_Chunk5_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -46,12 +55,12 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 250
+  spritePixelsToUnits: 163
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -77,7 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,13 +111,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Crank_v1_placeholder_0
+      name: Road_Chunk5_0
       rect:
         serializedVersion: 2
-        x: 34
+        x: 3
         y: 3
-        width: 1529
-        height: 1945
+        width: 163
+        height: 87
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +126,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 76d4eb194bc4cb840800000000000000
-      internalID: 5241148404775406951
+      spriteID: a1d5c973ab59a47d0800000000000000
+      internalID: -2933367580249006822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Chunk5_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 3
+        width: 163
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfb05e8d71fb67a0800000000000000
+      internalID: -6382742525306683472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Chunk5_2
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 3
+        width: 163
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ad5c9d6a8cbba320800000000000000
+      internalID: 2570355315075472801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Road_Chunk5_3
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 3
+        width: 163
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bff444df59b70760800000000000000
+      internalID: 7424106331977875381
       vertices: []
       indices: 
       edges: []
@@ -127,7 +202,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -137,7 +212,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Crank_v1_placeholder_0: 5241148404775406951
+      Road_Chunk5_0: -2933367580249006822
+      Road_Chunk5_1: -6382742525306683472
+      Road_Chunk5_2: 2570355315075472801
+      Road_Chunk5_3: 7424106331977875381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
