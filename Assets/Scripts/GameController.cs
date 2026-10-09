@@ -25,6 +25,7 @@ public class GameController : MonoBehaviour
     {
         burdenAmount = 0;
         burdenSlider.value = 0;
+        if (burdenSlider == null)
         Trash.OnTrashCollect += IncreaseBurdenAmount;
     }
 
