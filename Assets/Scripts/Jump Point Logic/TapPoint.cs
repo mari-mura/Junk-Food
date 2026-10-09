@@ -4,6 +4,8 @@ public class TapPoint : JumpPoint
 {
     public override void OnActivate() => detector.TapStarted += OnTapStarted;
     public override void OnDeactivate() => detector.TapStarted -= OnTapStarted;
+    
+    protected override string DefaultPrompt => "TAP D!";
 
     private void OnTapStarted(PressInfo info)
     {
