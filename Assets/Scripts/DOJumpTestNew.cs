@@ -1,4 +1,5 @@
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using PressInfo = TapHoldDetector.PressInfo;
 
@@ -7,8 +8,9 @@ public class DoJumpTestNew : MonoBehaviour
     [SerializeField] private TapHoldDetector detector;
 
     [SerializeField] private NodePath path;
-    [SerializeField] private float jumpPower = 2f;
+    [SerializeField] private float jumpPower = 0.01f;
     [SerializeField] private float jumpDuration = 0.8f;
+    [SerializeField] private TMP_Text promptText;
 
     private JumpTimingTracker timing = new JumpTimingTracker();
     private JumpPoint pendingPoint;
@@ -49,6 +51,11 @@ public class DoJumpTestNew : MonoBehaviour
     {
         Vector3 target = path.Advance(steps);
         JumpPoint point = path.CurrentPoint;
+
+        if (promptText != null)
+        {
+            promptText.text = point.Prompt;
+        }
 
         timing = new JumpTimingTracker();
         Sequence jump = transform.DOJump(target, jumpPower, 1, duration);

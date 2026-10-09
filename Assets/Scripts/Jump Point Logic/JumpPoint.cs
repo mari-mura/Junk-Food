@@ -6,6 +6,12 @@ public abstract class JumpPoint : MonoBehaviour
 {
     public event Action<JumpPoint> Succeeded;
     public event Action<JumpPoint> Failed;
+    
+    [SerializeField] private string promptOverride;
+
+    protected virtual string DefaultPrompt => "";
+
+    public string Prompt => string.IsNullOrEmpty(promptOverride) ? DefaultPrompt : promptOverride;
 
     [SerializeField] protected float timingWindow = 0.15f;
 
