@@ -83,7 +83,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -2886768307926545280, guid: 130385b6f99594c5884fec4a6f1188bc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_Size: {x: 2.7, y: 2.7}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
 --- !u!114 &6577969833751189479
@@ -109,7 +109,7 @@ MonoBehaviour:
   worth: 10
   collectibleItemSO: {fileID: 0}
   quantity: 1
-  sr: {fileID: 4372994169916473193}
+  sr: {fileID: 0}
 --- !u!58 &1183616949140368075
 CircleCollider2D:
   m_ObjectHideFlags: 0
