@@ -3,7 +3,7 @@ using UnityEngine;
 public class JumpTimingTracker
 {
     private Sequence jumpSequence;
-    private bool hasLanded;
+    public bool hasLanded; // Sam: need to check for anim
     private float landingTime;
 
     public bool IsJumping => jumpSequence != null && jumpSequence.IsActive() && jumpSequence.IsPlaying();

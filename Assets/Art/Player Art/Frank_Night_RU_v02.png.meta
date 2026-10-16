@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: abe4f372364394a0bb36b15bad1eb60a
+guid: 2cf97da10f9cd4ced96f4336e8cf3b79
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7322004409194648379
-    second: Frank_Model_v1_anim_4_0
-  - first:
-      213: -8492410146331234753
-    second: Frank_Model_v1_anim_4_1
+      213: 3137977442787861688
+    second: Frank_Night_RU_v02_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -80,7 +77,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -105,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frank_Model_v1_anim_4_0
+      name: Frank_Night_RU_v02_0
       rect:
         serializedVersion: 2
-        x: 144
-        y: 244
-        width: 906
-        height: 972
+        x: 32
+        y: 39
+        width: 214
+        height: 221
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,30 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 5cceb1298c3036a90800000000000000
-      internalID: -7322004409194648379
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Frank_Model_v1_anim_4_1
-      rect:
-        serializedVersion: 2
-        x: 675
-        y: 231
-        width: 38
-        height: 6
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: f3ee00577f5e42a80800000000000000
-      internalID: -8492410146331234753
+      spriteID: 8b42f86cbd55c8b20800000000000000
+      internalID: 3137977442787861688
       vertices: []
       indices: 
       edges: []
@@ -162,8 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Frank_Model_v1_anim_4_0: -7322004409194648379
-      Frank_Model_v1_anim_4_1: -8492410146331234753
+      Frank_Night_RU_v02_0: 3137977442787861688
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
