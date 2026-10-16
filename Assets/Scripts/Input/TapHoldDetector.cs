@@ -4,11 +4,8 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
 
-//TLDR: Reads input buttons and groups presses into taps, holds, or chords
 public class TapHoldDetector : MonoBehaviour
 {
-    
-    //
     [Serializable]
     public class ButtonBinding
     {
