@@ -1,9 +1,20 @@
+using UnityEngine;
 using PressInfo = TapHoldDetector.PressInfo;
 
 public class TapPoint : JumpPoint
 {
-    public override void OnActivate() => detector.TapStarted += OnTapStarted;
-    public override void OnDeactivate() => detector.TapStarted -= OnTapStarted;
+    [SerializeField] private ApproachCircle approachCircle;
+    public override void OnActivate()
+    {
+        detector.TapStarted += OnTapStarted;
+        approachCircle.Begin(tracker);
+    }
+
+    public override void OnDeactivate()
+    {
+        detector.TapStarted -= OnTapStarted;
+        approachCircle.Stop();
+    }
     
     protected override string DefaultPrompt => "TAP D!";
 
