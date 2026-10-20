@@ -1,3 +1,4 @@
+using System;
 using DG.Tweening;
 using UnityEngine;
 public class JumpTimingTracker
@@ -5,6 +6,7 @@ public class JumpTimingTracker
     private Sequence jumpSequence;
     private bool hasLanded;
     private float landingTime;
+    public event Action Landed;
 
     public bool IsJumping => jumpSequence != null && jumpSequence.IsActive() && jumpSequence.IsPlaying();
 
@@ -19,6 +21,7 @@ public class JumpTimingTracker
     {
         hasLanded = true;
         landingTime = Time.time;
+        Landed?.Invoke();
     }
     
     public float GetOffset()

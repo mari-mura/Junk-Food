@@ -6,6 +6,8 @@ public class TapHoldReceiver : MonoBehaviour
 {
     [SerializeField] TapHoldDetector detector;
     [SerializeField] bool logToConsole = false;
+
+    public TapHoldDetector Detector => detector;
     
     public event Action<PressInfo> SingleTapped;
     
