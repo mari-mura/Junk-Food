@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransporter
   pathName: Path1
-  sceneToLoad: TB_Level1
+  sceneToLoad: 
   takesMeBack: 0
   player: {fileID: 330482115}
   node: {fileID: 65371569}
