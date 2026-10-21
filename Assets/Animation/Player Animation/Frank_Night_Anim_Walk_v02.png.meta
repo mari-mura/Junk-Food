@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: ba8a8e72817294f5fa30ca15c09f802b
+guid: 44054722288fb4006b992ce3b064251e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5340404042957641644
-    second: Frank_Model_v1_anim_3_0
+      213: 3273147405240878834
+    second: Frank_Night_Anim_Walk_v02_0
+  - first:
+      213: -5857293845487154364
+    second: Frank_Night_Anim_Walk_v02_1
+  - first:
+      213: -1502442296449249692
+    second: Frank_Night_Anim_Walk_v02_2
+  - first:
+      213: -8153323723373626329
+    second: Frank_Night_Anim_Walk_v02_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -77,7 +86,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 1
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -102,23 +111,89 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Frank_Model_v1_anim_3_0
+      name: Frank_Night_Anim_Walk_v02_0
       rect:
         serializedVersion: 2
-        x: 131
-        y: 203
-        width: 965
-        height: 980
+        x: 0
+        y: 0
+        width: 300
+        height: 300
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 458237e41d213e5b0800000000000000
-      internalID: -5340404042957641644
+      spriteID: 2f6cfd2293e8c6d20800000000000000
+      internalID: 3273147405240878834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Night_Anim_Walk_v02_1
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 44b08a2e746b6bea0800000000000000
+      internalID: -5857293845487154364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Night_Anim_Walk_v02_2
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46ece9011b0462be0800000000000000
+      internalID: -1502442296449249692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Night_Anim_Walk_v02_3
+      rect:
+        serializedVersion: 2
+        x: 900
+        y: 0
+        width: 300
+        height: 300
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 72cbc81954399de80800000000000000
+      internalID: -8153323723373626329
       vertices: []
       indices: 
       edges: []
@@ -127,7 +202,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 5e97eb03825dee720800000000000000
+    spriteID: 7de856f8574534639a5fbb5581ce0807
     internalID: 0
     vertices: []
     indices: 
@@ -135,9 +210,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     spriteCustomMetadata:
-      entries: []
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":300.0,"y":300.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":1,"keepEmptyRects":false,"isAlternate":false}'
     nameFileIdTable:
-      Frank_Model_v1_anim_3_0: -5340404042957641644
+      Frank_Night_Anim_Walk_v02_0: 3273147405240878834
+      Frank_Night_Anim_Walk_v02_1: -5857293845487154364
+      Frank_Night_Anim_Walk_v02_2: -1502442296449249692
+      Frank_Night_Anim_Walk_v02_3: -8153323723373626329
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
