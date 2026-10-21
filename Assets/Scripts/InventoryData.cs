@@ -38,6 +38,7 @@ public class InventoryData : ScriptableObject
         if (entries.Count >= maxSlots) return false;
         
         // creating a new item slot if it doesn't exist 
+        Debug.Log($"InventoryData.Add: item={(item != null ? item.itemName : "NULL")}, qty={quantity}, maxSlots={maxSlots}, entries={entries.Count}");
         entries.Add(new Entry { item = item, quantity = quantity });
         Changed?.Invoke();
         return true;
@@ -61,5 +62,10 @@ public class InventoryData : ScriptableObject
     {
         entries.Clear();
         Changed?.Invoke();
+    }
+    private void OnEnable()
+    {
+        // don't unload asset
+        hideFlags = HideFlags.DontUnloadUnusedAsset;
     }
 }
