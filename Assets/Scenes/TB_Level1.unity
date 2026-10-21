@@ -2702,6 +2702,9 @@ MonoBehaviour:
   volume: 0.2
   volumeIncrease: 2
   growAmount: 0.1
+  noiseMeter: {fileID: 0}
+  noisePerPickup: 10
+  noiseDecay: 2
 --- !u!1001 &1561075700
 PrefabInstance:
   m_ObjectHideFlags: 0
