@@ -6,6 +6,7 @@ public class InventoryManager : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log($"[{gameObject.scene.name}] asset id {inventoryData.GetEntityId()}, entries {inventoryData.Entries.Count}", this);
         if (inventoryData == null)
         {
             Debug.Log("inventory manager null.", this);

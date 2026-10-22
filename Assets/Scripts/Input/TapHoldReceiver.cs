@@ -15,8 +15,7 @@ public class TapHoldReceiver : MonoBehaviour
     
     public event Action<PressInfo> ChordTapped;
     
-    // Sam: QTE UI info for animation
-    public QuickTimeUI quickTimeUI;
+    public TapHoldDetector Detector => detector;
 
     void OnEnable()
     {
@@ -60,8 +59,7 @@ public class TapHoldReceiver : MonoBehaviour
         }
 
         Log("HOLD START " + pressInfo.Buttons[0]);
-        quickTimeUI.ButtonPressedAnim();
-        
+
         if (HoldStarted != null)
         {
             HoldStarted.Invoke(pressInfo);
@@ -76,8 +74,7 @@ public class TapHoldReceiver : MonoBehaviour
         }
 
         Log("HOLD END " + pressInfo.Buttons[0]);
-        quickTimeUI.ButtonDefaultAnim();
-        
+
         if (HoldEnded != null)
         {
             HoldEnded.Invoke(pressInfo);

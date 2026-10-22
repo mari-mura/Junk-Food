@@ -14,11 +14,19 @@ public class Trash : MonoBehaviour, IItem
 
     public void Collect()
     {
-        if (collectibleItemSO != null)
-            OnLootCollect?.Invoke(collectibleItemSO, quantity);
-            OnTrashCollect?.Invoke(worth);
+        try
+        {
+            if (collectibleItemSO != null)
+            {
+                OnLootCollect?.Invoke(collectibleItemSO, quantity);
+            }
 
-        Destroy(gameObject);
+            OnTrashCollect?.Invoke(worth);
+        }
+        finally
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnValidate()
