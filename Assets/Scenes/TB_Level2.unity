@@ -815,6 +815,7 @@ GameObject:
   - component: {fileID: 330482118}
   - component: {fileID: 330482121}
   - component: {fileID: 330482122}
+  - component: {fileID: 330482124}
   - component: {fileID: 330482123}
   m_Layer: 0
   m_Name: playerTest
@@ -973,7 +974,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ba2bb40b8c9b142a9858073a509d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoJumpTestNew
-  detector: {fileID: 1999037437}
+  input: {fileID: 1033106894}
+  mover: {fileID: 330482124}
+  promptDisplay: {fileID: 1797421081}
   path:
     nodes:
     - {fileID: 1241207653}
@@ -983,9 +986,8 @@ MonoBehaviour:
     - {fileID: 2015846155}
     - {fileID: 943278351}
     - {fileID: 117962418}
-  jumpPower: 0.01
-  jumpDuration: 0.8
-  promptText: {fileID: 1797421078}
+  tapJumpDuration: 0.8
+  holdJumpDuration: 2
 --- !u!212 &330482123
 SpriteRenderer:
   serializedVersion: 3
@@ -1046,6 +1048,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &330482124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330482114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d68f65f9290b34b881c3e797f576da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mover
+  jumpPower: 0.01
 --- !u!1 &383712032
 GameObject:
   m_ObjectHideFlags: 0
@@ -1733,7 +1748,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 995463659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: d4d5f0ee9386940b3a905dad4b52ed97, type: 2}
   m_CullingMode: 0
@@ -8008,6 +8023,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1797421080}
   - component: {fileID: 1797421079}
+  - component: {fileID: 1797421081}
   - component: {fileID: 1797421078}
   m_Layer: 0
   m_Name: TextPrompt
@@ -8179,6 +8195,19 @@ RectTransform:
   m_AnchoredPosition: {x: -0.94, y: -1.89}
   m_SizeDelta: {x: 5.4131, y: 2.1018}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1797421081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1797421077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b48b41fe898b1d45921cb58b650131a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PromptDisplay
+  promptText: {fileID: 1797421078}
 --- !u!1 &1890236985
 GameObject:
   m_ObjectHideFlags: 0

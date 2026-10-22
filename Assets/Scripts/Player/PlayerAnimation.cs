@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
 {
@@ -52,3 +52,4 @@ public class PlayerAnimation : MonoBehaviour
     }
 
 }
+*/
