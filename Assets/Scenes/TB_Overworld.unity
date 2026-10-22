@@ -825,6 +825,7 @@ GameObject:
   - component: {fileID: 330482118}
   - component: {fileID: 330482121}
   - component: {fileID: 330482122}
+  - component: {fileID: 330482123}
   m_Layer: 0
   m_Name: playerTest
   m_TagString: Player
@@ -1041,17 +1042,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70ba2bb40b8c9b142a9858073a509d65, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DoJumpTestNew
-  detector: {fileID: 1999037437}
+  input: {fileID: 1033106894}
+  mover: {fileID: 330482123}
+  promptDisplay: {fileID: 0}
   path:
     nodes:
     - {fileID: 1146153868}
     - {fileID: 1472094337}
     - {fileID: 350328914}
-  jumpPower: 2
-  jumpDuration: 0.8
-  promptText: {fileID: 0}
-  quickTimeUI: {fileID: 0}
-  isWalking: 0
+  tapJumpDuration: 0.8
+  holdJumpDuration: 2
+--- !u!114 &330482123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 330482114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d68f65f9290b34b881c3e797f576da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mover
+  jumpPower: 0.01
 --- !u!1001 &350328913
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1382,7 +1395,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TapHoldReceiver
   detector: {fileID: 1999037437}
   logToConsole: 1
-  quickTimeUI: {fileID: 0}
 --- !u!1 &1093917747
 GameObject:
   m_ObjectHideFlags: 0
