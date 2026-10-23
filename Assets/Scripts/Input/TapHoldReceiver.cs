@@ -16,6 +16,8 @@ public class TapHoldReceiver : MonoBehaviour
     
     public event Action<PressInfo> ChordTapped;
     
+    public TapHoldDetector Detector => detector;
+    
     private PlayerInput _playerInput; // Unity input action
     
     public InputAction HoldAction { get; private set; }

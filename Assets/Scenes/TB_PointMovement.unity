@@ -406,11 +406,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::JumpMover
   jumpPower: 0.01
+--- !u!1 &367895398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9181976927212840400, guid: c8476b99519744c0fb8b5c170c0fde3c, type: 3}
+  m_PrefabInstance: {fileID: 3645724459734807151}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &367895401 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 687094815207368460, guid: c8476b99519744c0fb8b5c170c0fde3c, type: 3}
   m_PrefabInstance: {fileID: 3645724459734807151}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &367895402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 367895398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 043a27fc47fb2449faf14c5848411e40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonHold
+  _fillImage: {fileID: 1172663892}
 --- !u!1 &740492614
 GameObject:
   m_ObjectHideFlags: 0
@@ -892,6 +910,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 5609999970175588865, guid: c8476b99519744c0fb8b5c170c0fde3c, type: 3}
   m_PrefabInstance: {fileID: 3645724459734807151}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1172663892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4088508636454280565, guid: c8476b99519744c0fb8b5c170c0fde3c, type: 3}
+  m_PrefabInstance: {fileID: 3645724459734807151}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
 --- !u!1 &1427548434
 GameObject:
   m_ObjectHideFlags: 0
@@ -1510,6 +1539,52 @@ MonoBehaviour:
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
   m_Version: 2
+--- !u!1 &1924036274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1924036275}
+  - component: {fileID: 1924036276}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1924036275
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924036274}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.6208496, y: -1.4120178, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1924036276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1924036274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5c107538899b45caa9ac6b27a1a6b64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIManager
+  _buttonHold: {fileID: 367895402}
+  _receiver: {fileID: 1033106894}
 --- !u!1 &1999037435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1737,7 +1812,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5609999970175588865, guid: c8476b99519744c0fb8b5c170c0fde3c, type: 3}
       insertIndex: 0
       addedObject: {fileID: 176725349}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 9181976927212840400, guid: c8476b99519744c0fb8b5c170c0fde3c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 367895402}
   m_SourcePrefab: {fileID: 100100000, guid: c8476b99519744c0fb8b5c170c0fde3c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -1751,4 +1829,5 @@ SceneRoots:
   - {fileID: 153942165}
   - {fileID: 1770494494}
   - {fileID: 751057709}
+  - {fileID: 1924036275}
   - {fileID: 1661030253}
