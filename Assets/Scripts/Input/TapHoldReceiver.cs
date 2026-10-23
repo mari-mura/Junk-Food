@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using PressInfo = TapHoldDetector.PressInfo;
 
 public class TapHoldReceiver : MonoBehaviour
@@ -15,7 +16,9 @@ public class TapHoldReceiver : MonoBehaviour
     
     public event Action<PressInfo> ChordTapped;
     
-    public TapHoldDetector Detector => detector;
+    private PlayerInput _playerInput; // Unity input action
+    
+    public InputAction HoldAction { get; private set; }
 
     void OnEnable()
     {
@@ -81,6 +84,13 @@ public class TapHoldReceiver : MonoBehaviour
         }
     }
 
+    private void Awake() // hold UI 
+    {
+        _playerInput = GetComponent<PlayerInput>();
+
+        HoldAction = _playerInput.actions["HoldAction"];
+    }
+
     void Log(string message)
     {
         if (logToConsole)
@@ -88,4 +98,5 @@ public class TapHoldReceiver : MonoBehaviour
             Debug.Log("[Rhythm] " + message);
         }
     }
+    
 }
