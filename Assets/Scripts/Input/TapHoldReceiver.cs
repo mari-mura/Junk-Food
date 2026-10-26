@@ -74,6 +74,7 @@ public class TapHoldReceiver : MonoBehaviour
         }
 
         Log("HOLD END " + pressInfo.Buttons[0]);
+        // tell graph code we received a hold release
 
         if (HoldEnded != null)
         {

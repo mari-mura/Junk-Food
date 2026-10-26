@@ -8,7 +8,6 @@ using UnityEngine.InputSystem.LowLevel;
 public class TapHoldDetector : MonoBehaviour
 {
     
-    //
     [Serializable]
     public class ButtonBinding
     {

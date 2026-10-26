@@ -16,7 +16,11 @@ public class PlayerJumpController : MonoBehaviour
     private JumpPoint pendingPoint;
 
     private bool CanJump => !mover.IsJumping && pendingPoint == null;
-    
+
+    private void Awake()
+    {
+        DemoMapBuilder.Build();
+    }
     private void Start()
     {
         path.ResetToStart();

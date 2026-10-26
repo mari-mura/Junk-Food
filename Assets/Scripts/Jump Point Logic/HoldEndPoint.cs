@@ -1,11 +1,11 @@
 using PressInfo = TapHoldDetector.PressInfo;
 
-public class HoldPoint : JumpPoint
+public class HoldEndPoint : JumpPoint
 {
     public override void OnActivate() => detector.HoldEnded += OnHoldEnded;
     public override void OnDeactivate() => detector.HoldEnded -= OnHoldEnded;
     
-    protected override string DefaultPrompt => "HOLD & RELEASE!";
+    protected override string DefaultPrompt => "RELEASE!";
 
     private void OnHoldEnded(PressInfo info)
     {
