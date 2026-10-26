@@ -6,6 +6,8 @@ public class TapHoldReceiver : MonoBehaviour
 {
     [SerializeField] TapHoldDetector detector;
     [SerializeField] bool logToConsole = false;
+    public PathSession pathSession;
+    [SerializeField] private GameObject player;
     
     public event Action<PressInfo> SingleTapped;
     
@@ -33,21 +35,27 @@ public class TapHoldReceiver : MonoBehaviour
 
     void OnTapReleased(PressInfo pressInfo)
     {
+        Debug.Log("In On Tap released");
         if (pressInfo.IsChord)
         {
-            Log("CHORD TAP " + string.Join("+", pressInfo.Buttons));
-            if (ChordTapped != null)
-            {
-                ChordTapped.Invoke(pressInfo);
-            }
+            Debug.Log("IsChord");
+
+            //if (ChordTapped != null)
+            //{
+                Debug.Log("ChordTapped");
+                pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
+                //ChordTapped.Invoke(pressInfo);
+            //}
         }
         else
         {
-            Log("TAP " + pressInfo.Buttons[0]);
-            if (SingleTapped != null)
-            {
-                SingleTapped.Invoke(pressInfo);
-            }
+            Debug.Log("Not Chord");
+            //if (SingleTapped != null)
+            //{
+                Debug.Log("SingleTapped");
+                pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
+                //SingleTapped.Invoke(pressInfo);
+            //}
         }
     }
 
@@ -57,13 +65,14 @@ public class TapHoldReceiver : MonoBehaviour
         {
             return;
         }
-
-        Log("HOLD START " + pressInfo.Buttons[0]);
-
-        if (HoldStarted != null)
-        {
-            HoldStarted.Invoke(pressInfo);
-        }
+        
+        
+        //if (HoldStarted != null)
+        //{
+            Debug.Log("HoldStarted");
+            pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
+            //HoldStarted.Invoke(pressInfo);
+        //}
     }
 
     void OnHoldEnded(PressInfo pressInfo)
@@ -73,20 +82,19 @@ public class TapHoldReceiver : MonoBehaviour
             return;
         }
 
-        Log("HOLD END " + pressInfo.Buttons[0]);
-        // tell graph code we received a hold release
-
-        if (HoldEnded != null)
-        {
-            HoldEnded.Invoke(pressInfo);
-        }
+        //if (HoldEnded != null)
+        //{
+            Debug.Log("HoldEnded");
+            pathSession.SubmitRelease(pressInfo.Buttons[0], player.transform.position);
+            //HoldEnded.Invoke(pressInfo);
+        //}
     }
 
     void Log(string message)
     {
         if (logToConsole)
         {
-            Debug.Log("[Rhythm] " + message);
+           Debug.Log("[Rhythm] " + message);
         }
     }
 }

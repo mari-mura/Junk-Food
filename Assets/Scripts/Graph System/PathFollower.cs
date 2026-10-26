@@ -10,14 +10,13 @@ public class PathFollower : MonoBehaviour
     public void Awake()
     {
         PathGraph demomap = DemoMapBuilder.Build();
-        HitJudge hitJudge = new HitJudge(1f, 2f);
+        HitJudge hitJudge = new HitJudge(0.5f, 0.8f);
         StartPath(demomap, hitJudge);
+        Session.Initialize(demomap, hitJudge);
     }
     
     public void StartPath(PathGraph graph, HitJudge judge)
     {
-        Session = new PathSession(graph, judge);
-
         if (Session.CurrentTarget != null)
         {
             transform.position = Session.CurrentTarget.Position;

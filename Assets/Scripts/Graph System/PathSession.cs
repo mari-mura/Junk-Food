@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PathSession
+public class PathSession: MonoBehaviour
 {
     private HitJudge judge;
     private PathPoint targetPoint;
@@ -9,6 +9,7 @@ public class PathSession
     private bool isHolding;
     private string heldButton;
     private bool isFinished;
+    public GameObject floatTextPrefab;
 
     // Shared result returned when an input did not apply to any point. Do not modify it.
     private PathResult ignoredResult = new PathResult();
@@ -45,7 +46,7 @@ public class PathSession
         }
     }
 
-    public PathSession(PathGraph graph, HitJudge judgeInput)
+    public void Initialize(PathGraph graph, HitJudge judgeInput)
     {
         judge = judgeInput;
         targetPoint = graph.StartPoint;
@@ -77,12 +78,17 @@ public class PathSession
         }
 
         HitGrade grade = judge.Judge(playerPosition, targetPoint);
+        
         if (grade == HitGrade.Miss)
         {
             // Outside the window, so this press does not belong to the target point
             return ignoredResult;
         }
 
+        GameObject popupObject = Instantiate(floatTextPrefab, playerPosition, Quaternion.identity);
+        FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
+        floatAndFade.SetText(grade.ToString(),Color.green);
+        
         PathEdge chosenEdge = null;
 
         if (targetPoint.Type == PathPointType.Choice)
@@ -136,6 +142,9 @@ public class PathSession
 
         // A release outside the window is early, because late ones are caught by CheckForMiss
         HitGrade grade = judge.Judge(playerPosition, targetPoint);
+        GameObject popupObject = Instantiate(floatTextPrefab, playerPosition, Quaternion.identity);
+        FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
+        floatAndFade.SetText(grade.ToString(),Color.green);
         return CompletePoint(grade, null, playerPosition);
     }
 
@@ -153,6 +162,9 @@ public class PathSession
         }
 
         isHolding = false;
+        GameObject popupObject = Instantiate(floatTextPrefab, playerPosition, Quaternion.identity);
+        FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
+        floatAndFade.SetText("Miss", Color.red);
         return CompletePoint(HitGrade.Miss, null, playerPosition);
     }
 
