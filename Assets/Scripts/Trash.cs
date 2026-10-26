@@ -7,6 +7,7 @@ public class Trash : MonoBehaviour, IItem
     public static event Action<Collectible_ItemSO, int> OnLootCollect;
 
     public int worth = 10;
+    public TrashData trashData;
     
     public Collectible_ItemSO collectibleItemSO;
     public int quantity = 1;
@@ -21,6 +22,7 @@ public class Trash : MonoBehaviour, IItem
                 OnLootCollect?.Invoke(collectibleItemSO, quantity);
             }
 
+            int burden = trashData != null ? trashData.burdenAmount : worth;
             OnTrashCollect?.Invoke(worth);
         }
         finally
