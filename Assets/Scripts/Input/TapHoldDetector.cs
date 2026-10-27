@@ -8,12 +8,11 @@ using UnityEngine.InputSystem.LowLevel;
 public class TapHoldDetector : MonoBehaviour
 {
     
-    //
     [Serializable]
     public class ButtonBinding
     {
         public string Name = "South";
-        public InputActionReference ActionReference;
+        //public InputActionReference ActionReference;
         public string BindingPath = "<Gamepad>/buttonSouth";
         public string KeyboardBindingPath = "<Keyboard>/s";
     }
@@ -141,7 +140,7 @@ public class TapHoldDetector : MonoBehaviour
 
         if (HasCustomAction(binding))
         {
-            button.Action = binding.ActionReference.action;
+            //button.Action = binding.ActionReference.action;
             button.OwnsAction = false;
         }
         else
@@ -157,7 +156,8 @@ public class TapHoldDetector : MonoBehaviour
 
     private bool HasCustomAction(ButtonBinding binding)
     {
-        return binding.ActionReference != null && binding.ActionReference.action != null;
+        //return binding.ActionReference != null && binding.ActionReference.action != null;
+        return false;
     }
 
     private void AddBindingIfSet(InputAction action, string path)
