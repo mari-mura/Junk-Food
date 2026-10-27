@@ -1,5 +1,7 @@
 using System;
+using ScriptableObjects;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Trash : MonoBehaviour, IItem
 {
@@ -7,8 +9,9 @@ public class Trash : MonoBehaviour, IItem
     public static event Action<Collectible_ItemSO, int> OnLootCollect;
 
     public int worth = 10;
+    public TrashData trashData;
     
-    public Collectible_ItemSO collectibleItemSO;
+    [FormerlySerializedAs("collectibleItemSO")] public Collectible_ItemSO collectibleItemSo;
     public int quantity = 1;
     public SpriteRenderer sr;
 
@@ -16,11 +19,12 @@ public class Trash : MonoBehaviour, IItem
     {
         try
         {
-            if (collectibleItemSO != null)
+            if (collectibleItemSo != null)
             {
-                OnLootCollect?.Invoke(collectibleItemSO, quantity);
+                OnLootCollect?.Invoke(collectibleItemSo, quantity);
             }
 
+            int burden = trashData != null ? trashData.burdenAmount : worth;
             OnTrashCollect?.Invoke(worth);
         }
         finally
@@ -31,10 +35,10 @@ public class Trash : MonoBehaviour, IItem
 
     private void OnValidate()
     {
-        if (collectibleItemSO == null || sr == null)
+        if (collectibleItemSo == null || sr == null)
             return;
-        sr.sprite = collectibleItemSO.icon;
-        name = collectibleItemSO.itemName;
+        sr.sprite = collectibleItemSo.icon;
+        name = collectibleItemSo.itemName;
     }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]

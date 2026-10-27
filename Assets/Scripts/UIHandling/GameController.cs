@@ -19,11 +19,13 @@ public class GameController : MonoBehaviour
     void OnEnable()
     {
         Trash.OnTrashCollect += IncreaseBurdenAmount;
+        Obstacle.OnObstacleStep += AddNoise;
     }
 
     void OnDisable()
     {
         Trash.OnTrashCollect -= IncreaseBurdenAmount;
+        Obstacle.OnObstacleStep -= AddNoise;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
