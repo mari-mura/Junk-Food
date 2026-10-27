@@ -7,13 +7,25 @@ public class SceneTransporter : MonoBehaviour
     public GameObject overworld;
     public static GameObject savedOverworld;
     bool used;
-    
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (used || !other.CompareTag("Player")) return;
 
+    void OnEnable()
+    {
+        used = false;
+    }
+    void OnMouseDown()
+    {
+        if (used) return;
         used = true;
+        
         savedOverworld = overworld;
+
+        Scene overworldScene = overworld.scene;
+        for (int i = SceneManager.sceneCount - 1; i >= 0; i--)
+        {
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene != overworldScene && scene.isLoaded)
+                SceneManager.UnloadSceneAsync(scene);
+        }
         overworld.SetActive(false);
         SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
     }

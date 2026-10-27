@@ -1,4 +1,5 @@
 using System;
+using ScriptableObjects;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
