@@ -35,5 +35,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ChoppingStep.unity
     guid: 3b97cad3a35454b87abeca10652ac925
+  - enabled: 1
+    path: Assets/Scenes/CookingGames/TB_Chopping.unity
+    guid: 97910a5f5ae4a9c4d93bde417d9d6879
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
