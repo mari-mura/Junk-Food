@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Collectible_ItemSO
   itemName: Shiny Apple
   itemDescription: A washed apple core
-  icon: {fileID: 0}
+  icon: {fileID: 9177222416668756201, guid: 024ecb5d5b2a44b75b85181225a97da7, type: 3}
