@@ -2,17 +2,24 @@ using UnityEngine;
 
 public class PathFollower : MonoBehaviour
 {
+    public MapBuilder MapBuilder;
     public float PlayerSpeed = 5.0f;
     public PathResult LastMissResult;
     public PathSession Session;
 
-
     public void Awake()
     {
-        PathGraph demomap = DemoMapBuilder.Build();
+        PathGraph graph = MapBuilder.Build();
+        Debug.Log("Created PathGraph: " + graph.ToString());
+        
         HitJudge hitJudge = new HitJudge(0.5f, 0.8f);
-        StartPath(demomap, hitJudge);
-        Session.Initialize(demomap, hitJudge);
+
+        Session.Initialize(graph, hitJudge);
+
+        if (Session.CurrentTarget != null)
+        {
+            transform.position = Session.CurrentTarget.Position;
+        }
     }
     
     public void StartPath(PathGraph graph, HitJudge judge)

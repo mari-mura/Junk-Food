@@ -10,58 +10,57 @@ public enum PathPointType
     Choice
 }
 
-public class PathPoint
+[System.Serializable]
+public class PathConnection
 {
-    private string pointId;
-    public Vector2 Position;
+    public string TargetPointId;
+    public string Button;
+}
+
+public class PathPoint : MonoBehaviour
+{
+    public string UniquePointId;
     public PathPointType Type;
-    public List<PathEdge> Edges = new List<PathEdge>();
+    public bool IsStartPoint;
+    public List<PathConnection> Connections = new List<PathConnection>();
 
-    public override string ToString()
-    {
-        string result = string.Format("{0} [{1}] at ({2}, {3})", pointId, Type, Position.x, Position.y);
+    private List<PathEdge> edges = new List<PathEdge>();
 
-        if (Edges.Count == 0)
-        {
-            return result + " (dead end)";
-        }
-
-        foreach (PathEdge edge in Edges)
-        {
-            result += "\n    " + edge;
-        }
-        return result;
-    }
-    
-    public string PointId
+    public Vector2 Position
     {
         get
         {
-            return pointId;
+            return transform.position;
         }
     }
 
-    public PathPoint(string idInput, PathPointType typeInput, Vector2 positionInput)
+    public List<PathEdge> Edges
     {
-        pointId = idInput;
-        Type = typeInput;
-        Position = positionInput;
+        get
+        {
+            return edges;
+        }
+    }
+
+    public void ClearEdges()
+    {
+        edges.Clear();
     }
 
     public bool IsDeadEnd()
     {
-        return Edges.Count == 0;
+        return edges.Count == 0;
     }
 
     public void AddEdge(PathPoint destination, string choiceButton)
     {
         PathEdge newEdge = new PathEdge(this, destination, choiceButton);
-        Edges.Add(newEdge);
+        edges.Add(newEdge);
     }
 
     public PathEdge GetEdgeForButton(string pressedButton)
     {
-        foreach (PathEdge edge in Edges)
+        foreach (PathEdge edge in edges)
         {
             if (edge.ChoiceButton == pressedButton)
             {
@@ -69,5 +68,21 @@ public class PathPoint
             }
         }
         return null;
+    }
+
+    public override string ToString()
+    {
+        string result = string.Format("{0} [{1}] at ({2}, {3})", UniquePointId, Type, Position.x, Position.y);
+
+        if (edges.Count == 0)
+        {
+            return result + " (dead end)";
+        }
+
+        foreach (PathEdge edge in edges)
+        {
+            result += "\n    " + edge;
+        }
+        return result;
     }
 }
