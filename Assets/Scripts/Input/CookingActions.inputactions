@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "name": "CookingActions",
+    "maps": [
+        {
+            "name": "Cooking",
+            "id": "7eda8c42-14b5-41de-a36b-38e1b1ce327a",
+            "actions": [
+                {
+                    "name": "Chop",
+                    "type": "Button",
+                    "id": "6eb02f5a-b4ed-4531-8116-ca60d249cb05",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0329e833-9e4b-4424-ba7b-7a56e66df0c9",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Chop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8406d9d7-7130-4a42-824d-87f127d06f9d",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Chop",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
