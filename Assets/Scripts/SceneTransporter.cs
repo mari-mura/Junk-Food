@@ -29,4 +29,9 @@ public class SceneTransporter : MonoBehaviour
         overworld.SetActive(false);
         SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
     }
+
+    public void OnClickStartGameButton()
+    {
+        SceneManager.LoadScene("TB_Overworld");
+    }
 }
