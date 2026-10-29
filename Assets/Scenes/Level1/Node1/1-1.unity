@@ -7768,6 +7768,38 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
   CustomBlends: {fileID: 0}
+--- !u!1 &1911150582
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1911150583}
+  m_Layer: 0
+  m_Name: Trash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1911150583
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911150582}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -22.4, y: -3.91, z: 503.5001}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1.99}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2037492771}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1984521826
 GameObject:
   m_ObjectHideFlags: 0
@@ -8161,7 +8193,7 @@ PrefabInstance:
     - target: {fileID: 4372994169916473193, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -2886768307926545280, guid: 130385b6f99594c5884fec4a6f1188bc, type: 3}
+      objectReference: {fileID: 9177222416668756201, guid: 024ecb5d5b2a44b75b85181225a97da7, type: 3}
     - target: {fileID: 4372994169916473193, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_SortingOrder
       value: 88
@@ -8228,6 +8260,10 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 9a3a9a6ca1d5b0a42a189b8fab71246f, type: 2}
     - target: {fileID: 6577969833751189479, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: collectibleItemSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
+    - target: {fileID: 6577969833751189479, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
+      propertyPath: collectibleItemSo
       value: 
       objectReference: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
     - target: {fileID: 8715827605262482240, guid: d108400cbe3434308b77e3feec6ba148, type: 3}

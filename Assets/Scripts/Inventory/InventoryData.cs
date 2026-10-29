@@ -56,6 +56,13 @@ public class InventoryData : ScriptableObject
         Changed?.Invoke();
         return true;
     }
+    public int GetQuantity(Collectible_ItemSO item)
+    {
+        Entry e = entries.Find(x => x.item == item);
+        return e != null ? e.quantity : 0;
+    }
+
+    public bool Has(Collectible_ItemSO item, int quantity = 1) => GetQuantity(item) >= quantity;
     
     // empty the list like if we end up resetting a level or failing we would call this
     public void Clear()
