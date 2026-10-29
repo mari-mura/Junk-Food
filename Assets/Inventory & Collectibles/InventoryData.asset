@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 32
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: InventoryData
   m_EditorClassIdentifier: Assembly-CSharp::InventoryData
   maxSlots: 6
-  entries: []
+  entries:
+  - item: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
+    quantity: 1
