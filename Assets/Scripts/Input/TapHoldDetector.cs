@@ -434,10 +434,4 @@ public class TapHoldDetector : MonoBehaviour
             HoldEnded.Invoke(pressInfo);
         }
     }
-
-    // Hold Button UI
-    public float GetTimeoutCompletionPercentage()
-    {
-        throw new NotImplementedException();
-    }
 }

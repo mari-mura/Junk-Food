@@ -1,4 +1,4 @@
-using UnityEngine;
+/*using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
@@ -13,18 +13,23 @@ public class UIManager : MonoBehaviour
 
     private void ListenForHoldAction()
     {
-       _buttonHold.ConnectToAction(_receiver.HoldAction);
+       //_buttonHold.ConnectToAction(_receiver.HoldAction);
        _receiver.HoldAction.performed += OnHoldPerformed;
     }
 
-    private void RemoveHoldAction()
+    private void StopHoldAction()
     {
-        _buttonHold.Disconnect();
+        //_buttonHold.Disconnect();
         _receiver.HoldAction.performed -= OnHoldPerformed;
     }
 
     private void OnHoldPerformed(InputAction.CallbackContext obj)
     {
         Debug.Log("Hold Perfmored, Do Something");
+        
+        _buttonHold.OnHold();
     }
+    
+    
 }
+*/

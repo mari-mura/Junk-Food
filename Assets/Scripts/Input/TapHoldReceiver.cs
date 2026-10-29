@@ -6,6 +6,7 @@ using PressInfo = TapHoldDetector.PressInfo;
 public class TapHoldReceiver : MonoBehaviour
 {
     [SerializeField] TapHoldDetector detector;
+    [SerializeField] ButtonHold buttonHold;
     [SerializeField] bool logToConsole = false;
     
     public event Action<PressInfo> SingleTapped;
@@ -17,10 +18,6 @@ public class TapHoldReceiver : MonoBehaviour
     public event Action<PressInfo> ChordTapped;
     
     public TapHoldDetector Detector => detector;
-    
-    private PlayerInput _playerInput; // Unity input action
-    
-    public InputAction HoldAction { get; private set; }
 
     void OnEnable()
     {
@@ -64,6 +61,7 @@ public class TapHoldReceiver : MonoBehaviour
         }
 
         Log("HOLD START " + pressInfo.Buttons[0]);
+        buttonHold.StartHold();
 
         if (HoldStarted != null)
         {
@@ -79,18 +77,12 @@ public class TapHoldReceiver : MonoBehaviour
         }
 
         Log("HOLD END " + pressInfo.Buttons[0]);
+        buttonHold.StopHold();
 
         if (HoldEnded != null)
         {
             HoldEnded.Invoke(pressInfo);
         }
-    }
-
-    private void Awake() // hold UI 
-    {
-        _playerInput = GetComponent<PlayerInput>();
-
-        HoldAction = _playerInput.actions["HoldAction"];
     }
 
     void Log(string message)
