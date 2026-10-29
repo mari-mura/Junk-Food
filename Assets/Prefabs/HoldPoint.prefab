@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1123589326610285854}
   - component: {fileID: 984932971702700228}
-  - component: {fileID: 8077920519088540865}
+  - component: {fileID: 1088343088096827222}
   m_Layer: 0
   m_Name: HoldPoint
   m_TagString: Untagged
@@ -94,7 +94,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &8077920519088540865
+--- !u!114 &1088343088096827222
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -105,9 +105,13 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ea357f6423bf8147abf72658e231f81, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::HoldPoint
+  m_EditorClassIdentifier: Assembly-CSharp::HoldEndPoint
+  UniquePointId: 
+  Type: 0
+  IsStartPoint: 0
+  Connections: []
   promptOverride: 
-  timingWindow: 0.5
+  timingWindow: 0.15
 --- !u!1 &8669083347726537513
 GameObject:
   m_ObjectHideFlags: 0
