@@ -17,4 +17,4 @@ MonoBehaviour:
   ingredients:
   - item: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
     quantity: 1
-  firstStepScene: ChoppingStep
+  firstStepScene: TB_Chopping

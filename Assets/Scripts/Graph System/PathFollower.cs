@@ -36,6 +36,12 @@ public class PathFollower : MonoBehaviour
         {
             return;
         }
+        PathPoint target = Session.CurrentTarget;
+
+        if (target == null)
+        {
+            return;
+        }
 
         Vector2 currentPosition = transform.position;
         float stepDistance = PlayerSpeed * Time.deltaTime;
