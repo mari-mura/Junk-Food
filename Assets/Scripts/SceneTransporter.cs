@@ -3,36 +3,30 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransporter : MonoBehaviour
 {
-    public string pathName;
-    public string sceneToLoad;
-    public bool takesMeBack;
-    public Transform player;
-    public Transform node;
+    public string levelName;
+    public GameObject overworld;
+    public static GameObject savedOverworld;
+    bool used;
 
-    void Start()
+    void OnEnable()
     {
-        if (pathName == SceneMemory.lastPath)
-        {
-            player.position = node.position;    
-        }
+        used = false;
     }
-
-    void OnTriggerEnter2D(Collider2D other)
+    void OnMouseDown()
     {
-        if (other.tag != "Player") return;
+        if (used) return;
+        used = true;
+        
+        savedOverworld = overworld;
 
-        if (takesMeBack)
+        Scene overworldScene = overworld.scene;
+        for (int i = SceneManager.sceneCount - 1; i >= 0; i--)
         {
-            SceneManager.LoadScene(SceneMemory.lastScene);
+            Scene scene = SceneManager.GetSceneAt(i);
+            if (scene != overworldScene && scene.isLoaded)
+                SceneManager.UnloadSceneAsync(scene);
         }
-        else
-        {
-            if (SceneMemory.usedPaths.Contains(pathName)) return;
-            
-            SceneMemory.usedPaths.Add(pathName);
-            SceneMemory.lastScene = SceneManager.GetActiveScene().name;
-            SceneMemory.lastPath = pathName;
-            SceneManager.LoadScene(sceneToLoad);
-        }
+        overworld.SetActive(false);
+        SceneManager.LoadScene(levelName, LoadSceneMode.Additive);
     }
 }
