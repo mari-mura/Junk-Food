@@ -1,10 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using PressInfo = TapHoldDetector.PressInfo;
 
 public class TapHoldReceiver : MonoBehaviour
 {
     [SerializeField] TapHoldDetector detector;
+    [SerializeField] ButtonHold buttonHold;
     [SerializeField] bool logToConsole = false;
     public PathSession pathSession;
     [SerializeField] private GameObject player;
@@ -65,6 +67,14 @@ public class TapHoldReceiver : MonoBehaviour
         {
             return;
         }
+
+        Log("HOLD START " + pressInfo.Buttons[0]);
+        buttonHold.StartHold();
+
+        if (HoldStarted != null)
+        {
+            HoldStarted.Invoke(pressInfo);
+        }
         
         
         //if (HoldStarted != null)
@@ -82,6 +92,13 @@ public class TapHoldReceiver : MonoBehaviour
             return;
         }
 
+        Log("HOLD END " + pressInfo.Buttons[0]);
+        buttonHold.StopHold();
+
+        if (HoldEnded != null)
+        {
+            HoldEnded.Invoke(pressInfo);
+        }
         //if (HoldEnded != null)
         //{
             Debug.Log("HoldEnded");
@@ -97,4 +114,5 @@ public class TapHoldReceiver : MonoBehaviour
            Debug.Log("[Rhythm] " + message);
         }
     }
+    
 }
