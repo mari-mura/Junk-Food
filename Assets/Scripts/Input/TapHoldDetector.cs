@@ -94,6 +94,7 @@ public class TapHoldDetector : MonoBehaviour
     private List<Press> openPresses = new List<Press>();
     private Press pressAcceptingChordMembers;
     private int nextPressId;
+    public object actions;
 
     private void OnValidate()
     {

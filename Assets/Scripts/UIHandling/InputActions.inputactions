@@ -1,0 +1,36 @@
+{
+    "version": 1,
+    "name": "InputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "1c732f3c-9fa5-4d9d-a5a3-4f8f9f8c64ab",
+            "actions": [
+                {
+                    "name": "HoldAction",
+                    "type": "Button",
+                    "id": "429b3cef-a6eb-4ba1-9fda-20f5f0ca6008",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "Hold(duration=1)",
+                    "initialStateCheck": false,
+                    "priority": 0
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "8774fe22-4192-4f4e-8785-ea9a9b0e9d31",
+                    "path": "<Keyboard>/#(D)",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldAction",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
