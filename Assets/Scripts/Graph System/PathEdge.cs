@@ -8,7 +8,7 @@ public class PathEdge
 
     public override string ToString()
     {
-        return string.Format("{0} -> {1} (button: {2})", Source.PointId, Destination.PointId, ChoiceButton);
+        return string.Format("{0} -> {1} (button: {2})", Source.UniquePointId, Destination.UniquePointId, ChoiceButton);
     }
 
     public PathEdge(PathPoint sourceInput, PathPoint destinationInput, string choiceButtonInput)

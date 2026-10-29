@@ -10,7 +10,7 @@ public class PathGraph
     public override string ToString()
     {
         StringBuilder sb = new StringBuilder();
-        string startId = StartPoint != null ? StartPoint.PointId : "none";
+        string startId = StartPoint != null ? StartPoint.UniquePointId : "none";
         sb.AppendLine(string.Format("PathGraph: {0} points, start = {1}", idToPoint.Count, startId));
 
         foreach (KeyValuePair<string, PathPoint> entry in idToPoint)
@@ -19,22 +19,22 @@ public class PathGraph
         }
         return sb.ToString();
     }
-    public PathPoint AddPoint(string pointId, PathPointType type, Vector2 position)
+    public void AddPoint(PathPoint point)
     {
-        if (idToPoint.ContainsKey(pointId))
+        if (idToPoint.ContainsKey(point.UniquePointId))
         {
-            Debug.LogWarning("Graph already contains node " + pointId);
-            return idToPoint[pointId];
+            Debug.LogWarning("Graph already contains point " + point.UniquePointId);
+            return;
         }
 
-        PathPoint newPoint = new PathPoint(pointId, type, position);
-        idToPoint.Add(pointId, newPoint);
+        // Edges live on the component, so clear any left over from an earlier Build
+        point.ClearEdges();
+        idToPoint.Add(point.UniquePointId, point);
 
-        if (StartPoint == null)
+        if (point.IsStartPoint)
         {
-            StartPoint = newPoint;
+            StartPoint = point;
         }
-        return newPoint;
     }
 
     public PathPoint GetPoint(string pointId)
