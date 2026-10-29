@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 3
   tags:
   - QTE UI
+  - PathPoint
   layers:
   - Default
   - TransparentFX

@@ -34,9 +34,7 @@ public class HitJudge
 
         return HitGrade.Miss;
     }
-
-    // Negative means the player has not reached the node yet (early).
-    // Positive means the player has passed the node (late).
+    
     public float GetSignedOffset(Vector2 playerPosition, PathPoint targetPoint, Vector2 travelDirection)
     {
         Vector2 offset = playerPosition - targetPoint.Position;
