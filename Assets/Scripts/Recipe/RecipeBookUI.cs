@@ -55,7 +55,6 @@ public class RecipeBookUI : MonoBehaviour
 
     private void OnRecipeClicked(RecipeSO recipe)
     {
-        Debug.Log($"Clicked {recipe.recipeName}. Can make: {recipe.CanMake(inventoryData)}, scene: '{recipe.firstStepScene}'");
         if (!recipe.CanMake(inventoryData))
         {
             ShowMessage("Insufficient ingredients!");
