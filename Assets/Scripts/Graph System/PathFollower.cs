@@ -12,7 +12,7 @@ public class PathFollower : MonoBehaviour
         PathGraph graph = MapBuilder.Build();
         Debug.Log("Created PathGraph: " + graph.ToString());
         
-        HitJudge hitJudge = new HitJudge(0.5f, 0.8f);
+        HitJudge hitJudge = new HitJudge(30f, 15f);
 
         Session.Initialize(graph, hitJudge);
 

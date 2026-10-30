@@ -1157,6 +1157,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1088343088096827222, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
+      propertyPath: Connections.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1123589326610285854, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.8
@@ -1289,11 +1293,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1891026958391015303, guid: 70884e9091919df4d899361c088e5126, type: 3}
       propertyPath: Connections.Array.data[0].Button
-      value: D
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1891026958391015303, guid: 70884e9091919df4d899361c088e5126, type: 3}
       propertyPath: Connections.Array.data[0].TargetPointId
-      value: Point10
+      value: 3.15
       objectReference: {fileID: 0}
     - target: {fileID: 2824665835855405150, guid: 70884e9091919df4d899361c088e5126, type: 3}
       propertyPath: m_SortingOrder
@@ -2198,6 +2202,18 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 1088343088096827222, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
+      propertyPath: UniquePointId
+      value: 2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088343088096827222, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
+      propertyPath: Connections.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1088343088096827222, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
+      propertyPath: Connections.Array.data[0].TargetPointId
+      value: 2.8
+      objectReference: {fileID: 0}
     - target: {fileID: 1123589326610285854, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.48
@@ -2321,6 +2337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TapHoldReceiver
   detector: {fileID: 1999037437}
+  buttonHold: {fileID: 0}
   logToConsole: 1
   pathSession: {fileID: 185322625}
   player: {fileID: 330482114}
@@ -3732,7 +3749,7 @@ TilemapRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
