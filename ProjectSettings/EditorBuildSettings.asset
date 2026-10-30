@@ -8,7 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TB_Overworld.unity
     guid: e74b4260f7b2cae4abd30771add4d0ed
   - enabled: 1
@@ -38,5 +38,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CookingGames/TB_Chopping.unity
     guid: 97910a5f5ae4a9c4d93bde417d9d6879
+  - enabled: 1
+    path: Assets/Scenes/StartingScreen.unity
+    guid: 269585f8de4044c718c9781d3e2354e5
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
