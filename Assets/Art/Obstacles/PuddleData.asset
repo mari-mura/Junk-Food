@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3900d514b63a5a842a94c7271db65aaf, type: 3}
   m_Name: PuddleData
   m_EditorClassIdentifier: Assembly-CSharp::ObstacleData
-  noiseAmount: 30
+  noiseAmount: 15
