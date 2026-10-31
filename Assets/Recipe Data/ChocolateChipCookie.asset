@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9a70b52542e4282a9b318be3c3db02, type: 3}
+  m_Name: ChocolateChipCookie
+  m_EditorClassIdentifier: Assembly-CSharp::RecipeSO
+  recipeName: Chocolate Chip Cookie
+  icon: {fileID: -6364996064874316258, guid: cc13587fa44da4a349a0f075653a56bb, type: 3}
+  ingredients:
+  - item: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
+    quantity: 2
+  firstStepScene: TB_Chopping
