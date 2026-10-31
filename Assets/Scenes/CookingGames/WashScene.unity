@@ -356,7 +356,7 @@ MonoBehaviour:
   scrubber: {fileID: 378647231}
   itemImage: {fileID: 641905526}
   timerText: {fileID: 1738174810}
-  washSeconds: 60
+  washSeconds: 15
   dayScene: DayTimeLobby
 --- !u!1 &430413174
 GameObject:
