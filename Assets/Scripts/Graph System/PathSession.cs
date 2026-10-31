@@ -174,6 +174,11 @@ public class PathSession: MonoBehaviour
         result.WasJudged = true;
         result.Grade = grade;
         result.JudgedPoint = targetPoint;
+        NoiseGenerator generator = targetPoint.GetComponent<NoiseGenerator>();
+        if (generator != null)
+        {
+            generator.ApplyGrade(grade);
+        }
         result.SignedOffset = judge.GetSignedOffset(playerPosition, targetPoint, travelDirection);
 
         PathEdge nextEdge = chosenEdge;
