@@ -161,6 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5824433519956261778}
   - component: {fileID: 8657928491285509987}
+  - component: {fileID: -7886321370211345199}
   - component: {fileID: 2428866626647387291}
   - component: {fileID: 545948644783132976}
   m_Layer: 0
@@ -246,6 +247,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
+--- !u!114 &-7886321370211345199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405042193470572664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40fb89774f1492489504c3e23d7c316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoiseGenerator
+  noiseMultiplier: 1
 --- !u!114 &2428866626647387291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -258,6 +272,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00d45dc48eeceb048b95416aa4af40ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ChordPoint
+  UniquePointId: 
+  Type: 0
+  IsStartPoint: 0
+  Connections: []
   promptOverride: 
   timingWindow: 0.5
   approachCircle: {fileID: 545948644783132976}
