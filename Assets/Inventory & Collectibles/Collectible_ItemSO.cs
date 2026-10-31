@@ -7,5 +7,6 @@ public class Collectible_ItemSO : ScriptableObject
     public string itemName;
     public string itemDescription;
     public Sprite icon;
+    public Collectible_ItemSO washedVersion;
 }
  
