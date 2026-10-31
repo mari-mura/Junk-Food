@@ -7,11 +7,10 @@ public class PathSession: MonoBehaviour
     private PathPoint targetPoint;
     private Vector2 travelDirection;
     private bool isHolding;
-    private string heldButton;
+    private List<string> heldButtons = new List<string>();
     private bool isFinished;
     public GameObject floatTextPrefab;
 
-    // Shared result returned when an input did not apply to any point. Do not modify it.
     private PathResult ignoredResult = new PathResult();
 
     public PathPoint CurrentTarget
@@ -72,7 +71,7 @@ public class PathSession: MonoBehaviour
             return ignoredResult;
         }
 
-        if (targetPoint.Type == PathPointType.HoldEnd)
+        if (IsHoldEndType(targetPoint.Type))
         {
             return ignoredResult;
         }
@@ -81,7 +80,6 @@ public class PathSession: MonoBehaviour
         
         if (grade == HitGrade.Miss)
         {
-            // Outside the window, so this press does not belong to the target point
             return ignoredResult;
         }
 
@@ -112,35 +110,34 @@ public class PathSession: MonoBehaviour
             }
         }
 
-        if (targetPoint.Type == PathPointType.HoldStart && grade != HitGrade.Miss)
+        if (IsHoldStartType(targetPoint.Type) && grade != HitGrade.Miss)
         {
             isHolding = true;
-            heldButton = pressedButtons[0];
+            heldButtons = new List<string>(pressedButtons);
         }
 
         return CompletePoint(grade, chosenEdge, playerPosition);
     }
 
-    public PathResult SubmitRelease(string releasedButton, Vector2 playerPosition)
+    public PathResult SubmitRelease(List<string> releasedButtons, Vector2 playerPosition)
     {
         if (isHolding == false || targetPoint == null)
         {
             return ignoredResult;
         }
 
-        if (targetPoint.Type != PathPointType.HoldEnd)
+        if (IsHoldEndType(targetPoint.Type) == false)
         {
             return ignoredResult;
         }
 
-        if (releasedButton != heldButton)
+        if (SameButtons(releasedButtons, heldButtons) == false)
         {
             return ignoredResult;
         }
 
         isHolding = false;
-
-        // A release outside the window is early, because late ones are caught by CheckForMiss
+        
         HitGrade grade = judge.Judge(playerPosition, targetPoint);
         GameObject popupObject = Instantiate(floatTextPrefab, playerPosition, Quaternion.identity);
         FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
@@ -216,11 +213,38 @@ public class PathSession: MonoBehaviour
     private bool MatchesPressCount(List<string> pressedButtons, PathPointType pointType)
     {
         int requiredCount = 1;
-        if (pointType == PathPointType.Chord)
+        if (pointType == PathPointType.Chord || pointType == PathPointType.ChordHoldStart)
         {
             requiredCount = 2;
         }
 
         return pressedButtons.Count == requiredCount;
+    }
+
+    private bool IsHoldStartType(PathPointType type)
+    {
+        return type == PathPointType.HoldStart || type == PathPointType.ChordHoldStart;
+    }
+
+    private bool IsHoldEndType(PathPointType type)
+    {
+        return type == PathPointType.HoldEnd || type == PathPointType.ChordHoldEnd;
+    }
+
+    private bool SameButtons(List<string> a, List<string> b)
+    {
+        if (a == null || b == null || a.Count != b.Count)
+        {
+            return false;
+        }
+
+        for (int i = 0; i < a.Count; i++)
+        {
+            if (a[i] != b[i])
+            {
+                return false;
+            }
+        }
+        return true;
     }
 }
