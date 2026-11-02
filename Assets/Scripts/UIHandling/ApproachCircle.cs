@@ -1,10 +1,12 @@
+using System.Net.Mime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ApproachCircle : MonoBehaviour
 {
     [SerializeField] private Transform approachRing;
-    [SerializeField] private SpriteRenderer approachRenderer;
-    [SerializeField] private float startScale = 3f; // how big it starts out
+    [SerializeField] private Image approachRenderer;
+    [SerializeField] private float startScale = 2f; // how big it starts out
     [SerializeField] private float approachTime = 1.2f; // how early the ring starts shrinking
 
     private JumpTimingTracker tracker;

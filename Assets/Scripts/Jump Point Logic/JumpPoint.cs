@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 
 // TLDR: This is the parent class for all of the different types of nodes we have in the game, all of them will inherit from and override as such
-public abstract class JumpPoint : MonoBehaviour
+public abstract class JumpPoint : PathPoint
 {
     public event Action<JumpPoint> Succeeded;
     public event Action<JumpPoint> Failed;

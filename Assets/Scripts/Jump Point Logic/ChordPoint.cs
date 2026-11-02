@@ -3,10 +3,22 @@ using PressInfo = TapHoldDetector.PressInfo;
 
 public class ChordPoint : JumpPoint
 {
-    public override void OnActivate() => detector.TapStarted += OnTapStarted;
-    public override void OnDeactivate() => detector.TapStarted -= OnTapStarted;
+    [SerializeField] private ApproachCircle approachCircle;
 
-    protected override string DefaultPrompt => "TAP BOTH D & E!";
+    public override void OnActivate()
+    {
+        detector.TapStarted += OnTapStarted;
+        approachCircle.Begin(tracker);
+    }
+
+
+    public override void OnDeactivate()
+    {
+        detector.TapStarted -= OnTapStarted;
+        approachCircle.Stop();
+    }
+
+    protected override string DefaultPrompt => "TAP D + E!";
     private void OnTapStarted(PressInfo info)
     {
         if (!info.IsChord)
