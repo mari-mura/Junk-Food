@@ -63,11 +63,6 @@ public class TapHoldReceiver : MonoBehaviour
 
     void OnHoldStarted(PressInfo pressInfo)
     {
-        if (pressInfo.IsChord)
-        {
-            return;
-        }
-
         Log("HOLD START " + pressInfo.Buttons[0]);
         buttonHold.StartHold();
 
@@ -76,22 +71,11 @@ public class TapHoldReceiver : MonoBehaviour
             HoldStarted.Invoke(pressInfo);
         }
         
-        
-        //if (HoldStarted != null)
-        //{
-            Debug.Log("HoldStarted");
-            pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
-            //HoldStarted.Invoke(pressInfo);
-        //}
+        pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
     }
 
     void OnHoldEnded(PressInfo pressInfo)
     {
-        if (pressInfo.IsChord)
-        {
-            return;
-        }
-
         Log("HOLD END " + pressInfo.Buttons[0]);
         buttonHold.StopHold();
 
@@ -99,12 +83,8 @@ public class TapHoldReceiver : MonoBehaviour
         {
             HoldEnded.Invoke(pressInfo);
         }
-        //if (HoldEnded != null)
-        //{
-            Debug.Log("HoldEnded");
-            pathSession.SubmitRelease(pressInfo.Buttons[0], player.transform.position);
-            //HoldEnded.Invoke(pressInfo);
-        //}
+        pathSession.SubmitRelease(pressInfo.Buttons, player.transform.position);
+
     }
 
     void Log(string message)

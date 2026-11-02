@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 273fe2f64eaf245bf91303c6078b1418, type: 3}
+  m_Name: DeerCustomer
+  m_EditorClassIdentifier: Assembly-CSharp::CustomerSO
+  displayName: Doe-lly
+  portrait: {fileID: -8041526204467121574, guid: 5ae9e85ef18aa4a7bb33ba11c1daeff8, type: 3}
+  requestedRecipe: {fileID: 11400000, guid: 18970904752874387aece7cbd0471c55, type: 2}
+  recipeToGive: {fileID: 11400000, guid: 18970904752874387aece7cbd0471c55, type: 2}
+  introLines:
+  - Hi! Give me a cookie.

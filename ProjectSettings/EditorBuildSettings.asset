@@ -8,12 +8,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/SampleScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/TB_Overworld.unity
     guid: e74b4260f7b2cae4abd30771add4d0ed
   - enabled: 1
     path: Assets/Scenes/Level1/Node1/1-1.unity
     guid: 8a8a57477353f1e4bb1625dfbaceceab
+  - enabled: 0
+    path: Assets/Scenes/TB_Level2.unity
+    guid: 306564694c40d9246a74e6b31e6bdf23
   - enabled: 1
     path: Assets/Scenes/Level1/Node1/1-2.unity
     guid: 32fc85c73f6a0d147a6b62bc75979c39

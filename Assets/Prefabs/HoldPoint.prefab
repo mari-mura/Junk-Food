@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1123589326610285854}
   - component: {fileID: 984932971702700228}
   - component: {fileID: 1088343088096827222}
+  - component: {fileID: 1829871077726355845}
   m_Layer: 0
   m_Name: HoldPoint
   m_TagString: Untagged
@@ -112,6 +113,19 @@ MonoBehaviour:
   Connections: []
   promptOverride: 
   timingWindow: 0.15
+--- !u!114 &1829871077726355845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3712117660750787033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40fb89774f1492489504c3e23d7c316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoiseGenerator
+  noiseMultiplier: 1
 --- !u!1 &8669083347726537513
 GameObject:
   m_ObjectHideFlags: 0

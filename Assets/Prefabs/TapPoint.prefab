@@ -192,6 +192,7 @@ GameObject:
   - component: {fileID: 2824665835855405150}
   - component: {fileID: 1891026958391015303}
   - component: {fileID: 619280905288938600}
+  - component: {fileID: 1665522990949105666}
   m_Layer: 0
   m_Name: TapPoint
   m_TagString: Untagged
@@ -287,6 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f1560ebf33cd5004095b1bede8244306, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TapPoint
+  UniquePointId: 
+  Type: 0
+  IsStartPoint: 0
+  Connections: []
   promptOverride: 
   timingWindow: 0.5
   approachCircle: {fileID: 619280905288938600}
@@ -306,6 +311,19 @@ MonoBehaviour:
   approachRenderer: {fileID: 5718939113083929350}
   startScale: 3
   approachTime: 1.2
+--- !u!114 &1665522990949105666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5280968985085261442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40fb89774f1492489504c3e23d7c316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoiseGenerator
+  noiseMultiplier: 1
 --- !u!1 &5626838417861416959
 GameObject:
   m_ObjectHideFlags: 0

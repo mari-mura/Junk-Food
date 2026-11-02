@@ -2,29 +2,42 @@ using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using UnityEngine.UI;
 public class RecipeBookUI : MonoBehaviour
 {
     [Header("Data")]
     [SerializeField] private InventoryData inventoryData;
     [SerializeField] private CookingSession session;
-    [SerializeField] private RecipeSO[] recipes;
-
+    [SerializeField] private RecipeBookData recipeBook;
+    
     [Header("UI")]
     [SerializeField] private GameObject bookPanel;
     [SerializeField] private Transform entryContainer;
     [SerializeField] private RecipeEntryUI entryPrefab;
     [SerializeField] private TMP_Text messageText;
     [SerializeField] private float messageSeconds = 2f;
+    
+    [SerializeField] private Button openButton;
+    [SerializeField] private Button closeButton;
 
     private Coroutine messageRoutine;
+    private void OnEnable()
+    {
+        if (openButton != null) openButton.onClick.AddListener(Open);
+        if (closeButton != null) closeButton.onClick.AddListener(Close);
+    }
+
+    private void OnDisable()
+    {
+        if (openButton != null) openButton.onClick.RemoveListener(Open);
+        if (closeButton != null) closeButton.onClick.RemoveListener(Close);
+    }
 
     private void Start()
     {
         bookPanel.SetActive(false);
         if (messageText != null) messageText.text = "";
     }
-    
     public void Open()
     {
         bookPanel.SetActive(true);
@@ -35,8 +48,7 @@ public class RecipeBookUI : MonoBehaviour
     {
         bookPanel.SetActive(false);
     }
-
-    // rebuild list for inventory changes like washing
+    
     private void Refresh()
     {
         foreach (Transform child in entryContainer)
@@ -44,7 +56,7 @@ public class RecipeBookUI : MonoBehaviour
             Destroy(child.gameObject);
         }
 
-        foreach (RecipeSO recipe in recipes)
+        foreach (RecipeSO recipe in recipeBook.Unlocked)
         {
             if (recipe == null) continue;
 
@@ -57,7 +69,7 @@ public class RecipeBookUI : MonoBehaviour
     {
         if (!recipe.CanMake(inventoryData))
         {
-            ShowMessage("Insufficient ingredients!");
+            ShowMessage("insufficient ingredients!");
             return;
         }
 
@@ -65,12 +77,10 @@ public class RecipeBookUI : MonoBehaviour
         {
             return;
         }
-
-        // lock in the recipe, then move to its first step
+        
         session.Begin(recipe);
         SceneManager.LoadScene(recipe.firstStepScene);
     }
-
     private void ShowMessage(string text)
     {
         Debug.Log(text);

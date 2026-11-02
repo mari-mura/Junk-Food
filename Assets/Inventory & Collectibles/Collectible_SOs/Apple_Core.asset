@@ -15,3 +15,4 @@ MonoBehaviour:
   itemName: Apple Core
   itemDescription: A mostly eaten apple.
   icon: {fileID: 9177222416668756201, guid: 024ecb5d5b2a44b75b85181225a97da7, type: 3}
+  washedVersion: {fileID: 11400000, guid: bcf53804c250a4df8aee195040d191ee, type: 2}

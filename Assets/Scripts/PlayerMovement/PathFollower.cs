@@ -6,6 +6,24 @@ public class PathFollower : MonoBehaviour
     public float PlayerSpeed = 5.0f;
     public PathResult LastMissResult;
     public PathSession Session;
+    public PlayerLauncher Launcher;
+    private bool isMoving = false;
+
+    public bool IsMoving
+    {
+        get { return isMoving; }
+    }
+
+    void Start()
+    {
+        Launcher.Launch(StartMoving);
+    }
+
+    public void StartMoving(float speed)
+    {
+        PlayerSpeed = speed;
+        isMoving = true;
+    }
 
     public void Awake()
     {
@@ -32,7 +50,7 @@ public class PathFollower : MonoBehaviour
 
     void Update()
     {
-        if (Session == null || Session.IsFinished)
+        if (Session == null || Session.IsFinished || isMoving == false)
         {
             return;
         }

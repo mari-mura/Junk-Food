@@ -7,7 +7,9 @@ public enum PathPointType
     HoldStart,
     HoldEnd,
     Chord,
-    Choice
+    Choice,
+    ChordHoldStart,
+    ChordHoldEnd,
 }
 
 [System.Serializable]
