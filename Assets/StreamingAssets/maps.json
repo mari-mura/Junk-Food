@@ -4,14 +4,59 @@
             "MapId": "TB_GraphMovement",
             "Points": [
                 {
-                    "UniquePointId": "upTarget",
+                    "UniquePointId": "holdEndNode1",
+                    "Type": 2,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 5.809999942779541,
+                        "y": -0.1958494484424591
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "chordPoint1",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
+                    "UniquePointId": "rightTarget",
                     "Type": 0,
                     "IsStartPoint": false,
                     "Position": {
-                        "x": 11.430000305175781,
-                        "y": 4.710000038146973
+                        "x": 13.329999923706055,
+                        "y": -0.36000004410743713
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "landHold",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
+                    "UniquePointId": "landTap2",
+                    "Type": 0,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 22.036359786987305,
+                        "y": -0.5016800165176392
                     },
                     "Connections": []
+                },
+                {
+                    "UniquePointId": "landRelease",
+                    "Type": 6,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 17.466360092163086,
+                        "y": -0.3516800105571747
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "landTap1",
+                            "Button": ""
+                        }
+                    ]
                 },
                 {
                     "UniquePointId": "choicePoint1",
@@ -33,21 +78,6 @@
                     ]
                 },
                 {
-                    "UniquePointId": "chordPoint1",
-                    "Type": 3,
-                    "IsStartPoint": false,
-                    "Position": {
-                        "x": 8.569999694824219,
-                        "y": -0.28337374329566956
-                    },
-                    "Connections": [
-                        {
-                            "TargetPointId": "choicePoint1",
-                            "Button": ""
-                        }
-                    ]
-                },
-                {
                     "UniquePointId": "startPoint",
                     "Type": 0,
                     "IsStartPoint": true,
@@ -63,31 +93,26 @@
                     ]
                 },
                 {
-                    "UniquePointId": "landRelease",
-                    "Type": 6,
+                    "UniquePointId": "upTarget",
+                    "Type": 0,
                     "IsStartPoint": false,
                     "Position": {
-                        "x": 17.466360092163086,
+                        "x": 11.430000305175781,
+                        "y": 4.710000038146973
+                    },
+                    "Connections": []
+                },
+                {
+                    "UniquePointId": "landHold",
+                    "Type": 5,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 15.526360511779785,
                         "y": -0.3516800105571747
                     },
                     "Connections": [
                         {
-                            "TargetPointId": "landTap1",
-                            "Button": ""
-                        }
-                    ]
-                },
-                {
-                    "UniquePointId": "holdEndNode1",
-                    "Type": 2,
-                    "IsStartPoint": false,
-                    "Position": {
-                        "x": 5.809999942779541,
-                        "y": -0.1958494484424591
-                    },
-                    "Connections": [
-                        {
-                            "TargetPointId": "chordPoint1",
+                            "TargetPointId": "landRelease",
                             "Button": ""
                         }
                     ]
@@ -108,6 +133,75 @@
                     ]
                 },
                 {
+                    "UniquePointId": "holdStartPoint1",
+                    "Type": 1,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 2.6500000953674316,
+                        "y": -0.1958494484424591
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "holdEndNode1",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
+                    "UniquePointId": "chordPoint1",
+                    "Type": 3,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 8.569999694824219,
+                        "y": -0.28337374329566956
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "choicePoint1",
+                            "Button": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "MapId": "TB_GraphMovement2",
+            "Points": [
+                {
+                    "UniquePointId": "startPoint",
+                    "Type": 0,
+                    "IsStartPoint": true,
+                    "Position": {
+                        "x": -0.5900000333786011,
+                        "y": -0.22999998927116394
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "holdStartPoint1",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
+                    "UniquePointId": "choicePoint1",
+                    "Type": 4,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 11.319999694824219,
+                        "y": -0.36000004410743713
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "upTarget",
+                            "Button": "North"
+                        },
+                        {
+                            "TargetPointId": "rightTarget",
+                            "Button": "East"
+                        }
+                    ]
+                },
+                {
                     "UniquePointId": "rightTarget",
                     "Type": 0,
                     "IsStartPoint": false,
@@ -118,6 +212,61 @@
                     "Connections": [
                         {
                             "TargetPointId": "landHold",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
+                    "UniquePointId": "upTarget",
+                    "Type": 0,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 11.430000305175781,
+                        "y": 4.710000038146973
+                    },
+                    "Connections": []
+                },
+                {
+                    "UniquePointId": "landHold",
+                    "Type": 5,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 15.526360511779785,
+                        "y": -0.3516800105571747
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "landRelease",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
+                    "UniquePointId": "chordPoint1",
+                    "Type": 3,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 8.569999694824219,
+                        "y": -0.28337374329566956
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "choicePoint1",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
+                    "UniquePointId": "landTap1",
+                    "Type": 0,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 19.576358795166016,
+                        "y": -0.441679984331131
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "landTap2",
                             "Button": ""
                         }
                     ]
@@ -138,6 +287,21 @@
                     ]
                 },
                 {
+                    "UniquePointId": "holdEndNode1",
+                    "Type": 2,
+                    "IsStartPoint": false,
+                    "Position": {
+                        "x": 5.809999942779541,
+                        "y": -0.1958494484424591
+                    },
+                    "Connections": [
+                        {
+                            "TargetPointId": "chordPoint1",
+                            "Button": ""
+                        }
+                    ]
+                },
+                {
                     "UniquePointId": "landTap2",
                     "Type": 0,
                     "IsStartPoint": false,
@@ -148,16 +312,16 @@
                     "Connections": []
                 },
                 {
-                    "UniquePointId": "landHold",
-                    "Type": 5,
+                    "UniquePointId": "landRelease",
+                    "Type": 6,
                     "IsStartPoint": false,
                     "Position": {
-                        "x": 15.526360511779785,
+                        "x": 17.466360092163086,
                         "y": -0.3516800105571747
                     },
                     "Connections": [
                         {
-                            "TargetPointId": "landRelease",
+                            "TargetPointId": "landTap1",
                             "Button": ""
                         }
                     ]
@@ -165,5 +329,48 @@
             ]
         }
     ],
-    "WorldMaps": []
+    "WorldMaps": [
+        {
+            "MapId": "TestWorldMap",
+            "Nodes": [
+                {
+                    "NodeId": "StartPoint",
+                    "Position": {
+                        "x": 0.0,
+                        "y": 0.0
+                    },
+                    "IsSavePoint": true,
+                    "Edges": [
+                        {
+                            "TargetNodeId": "LevelOne",
+                            "LevelId": "TB_GraphMovement"
+                        }
+                    ]
+                },
+                {
+                    "NodeId": "LevelOne",
+                    "Position": {
+                        "x": 3.0,
+                        "y": 0.0
+                    },
+                    "IsSavePoint": false,
+                    "Edges": [
+                        {
+                            "TargetNodeId": "LevelTwo",
+                            "LevelId": "TB_GraphMovement2"
+                        }
+                    ]
+                },
+                {
+                    "NodeId": "LevelTwo",
+                    "Position": {
+                        "x": 6.0,
+                        "y": 0.0
+                    },
+                    "IsSavePoint": false,
+                    "Edges": []
+                }
+            ]
+        }
+    ]
 }

@@ -32,6 +32,7 @@ public class WorldNodeData
 {
     public string NodeId;
     public Vector2 Position;
+    public bool IsSavePoint;
     public List<WorldEdgeData> Edges = new List<WorldEdgeData>();
 }
 

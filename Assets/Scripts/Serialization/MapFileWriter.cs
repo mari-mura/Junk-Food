@@ -16,7 +16,7 @@ public class MapFileWriter : MonoBehaviour
 
     private void Start()
     {
-        //WriteMaps();
+        WriteMaps();
     }
 
     public void WriteMaps()

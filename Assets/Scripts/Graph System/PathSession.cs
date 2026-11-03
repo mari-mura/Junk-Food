@@ -12,6 +12,7 @@ public class PathSession: MonoBehaviour
     public GameObject floatTextPrefab;
 
     private PathResult ignoredResult = new PathResult();
+    public static event System.Action OnPathFinished;
 
     public PathPoint CurrentTarget
     {
@@ -198,6 +199,12 @@ public class PathSession: MonoBehaviour
 
         result.NextTarget = targetPoint;
         result.PathFinished = isFinished;
+        
+        if (isFinished && OnPathFinished != null)
+        {
+            OnPathFinished.Invoke();
+        }
+        
         return result;
     }
 
