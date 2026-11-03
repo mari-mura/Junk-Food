@@ -33,6 +33,7 @@ public class WorldNodeData
     public string NodeId;
     public Vector2 Position;
     public bool IsSavePoint;
+    public bool IsCache;
     public List<WorldEdgeData> Edges = new List<WorldEdgeData>();
 }
 
