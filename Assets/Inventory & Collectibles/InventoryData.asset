@@ -15,4 +15,6 @@ MonoBehaviour:
   maxSlots: 6
   entries:
   - item: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
-    quantity: 11
+    quantity: 2
+  burdenPerObject: 10
+  maxBurden: 100
