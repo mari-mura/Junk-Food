@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ButtonHold
   _fillImage: {fileID: 4088508636454280565}
-  fillTime: 2
+  drainTime: 0.5
   fillColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   failColor: {r: 1, g: 0, b: 0, a: 1}
   successColor: {r: 0.5647059, g: 0.9333334, b: 0.5647059, a: 1}

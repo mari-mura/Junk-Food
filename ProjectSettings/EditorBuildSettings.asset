@@ -41,5 +41,17 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CookingGames/TB_Chopping.unity
     guid: 97910a5f5ae4a9c4d93bde417d9d6879
+  - enabled: 1
+    path: Assets/Scenes/JoeyTestScenes/TestWorldMap.unity
+    guid: 6375648e6cf323d459614c461dbbe9dd
+  - enabled: 1
+    path: Assets/Scenes/JoeyTestScenes/TB_GraphMovement.unity
+    guid: 603f321b807197f458ae853f3b73f49f
+  - enabled: 1
+    path: Assets/Scenes/JoeyTestScenes/TB_GraphMovement2.unity
+    guid: ddc0c2eab3a25ef4a8fe2977e17cd441
+  - enabled: 1
+    path: Assets/Scenes/LevelHookupTemplate.unity
+    guid: 9230be7f1172dfa40bae1622849ed49f
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

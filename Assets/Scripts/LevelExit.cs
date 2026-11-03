@@ -3,27 +3,51 @@ using UnityEngine.SceneManagement;
 
 public class LevelExit : MonoBehaviour
 {
-    public string nextLevel;
-    bool used;
+    [SerializeField] private float delaySeconds = 1f;
 
-    void OnTriggerEnter2D(Collider2D other)
+    private bool isLeaving = false;
+
+    private void OnEnable()
     {
-        if (used || !other.CompareTag("Player")) return;
-        used = true;
+        PathSession.OnPathFinished += OnPathFinished;
+        NoiseTracker.Caught += OnCaught;
+    }
 
-        Scene currentLevel = gameObject.scene;
-        if (string.IsNullOrEmpty(nextLevel))
+    private void OnDisable()
+    {
+        PathSession.OnPathFinished -= OnPathFinished;
+        NoiseTracker.Caught -= OnCaught;
+    }
+
+    private void OnPathFinished()
+    {
+        if (isLeaving)
         {
-            if (SceneTransporter.savedOverworld != null)
-                SceneTransporter.savedOverworld.SetActive(true);
-            else
-                Debug.LogWarning("No Overworld");
-        }
-        else
-        {
-            SceneManager.LoadScene(nextLevel, LoadSceneMode.Additive);
+            return;
         }
 
-        SceneManager.UnloadSceneAsync(currentLevel);
+        isLeaving = true;
+        Invoke(nameof(LeaveLevel), delaySeconds);
+    }
+
+    private void OnCaught()
+    {
+        if (isLeaving)
+        {
+            return;
+        }
+
+        isLeaving = true;
+        Invoke(nameof(RespawnAtSavePoint), delaySeconds);
+    }
+
+    private void LeaveLevel()
+    {
+        MapTransitioner.MoveToWorldMapNode(SceneManager.GetActiveScene().name);
+    }
+
+    private void RespawnAtSavePoint()
+    {
+        MapTransitioner.MoveToSavePoint();
     }
 }
