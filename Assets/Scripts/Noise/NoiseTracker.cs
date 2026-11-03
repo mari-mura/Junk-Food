@@ -6,6 +6,7 @@ public static class NoiseTracker
     public const float MaxNoise = 100f;
     
     public static event Action<float> NoiseUpdated;
+    public static event Action Caught;
 
     private static float noise;
 
@@ -36,6 +37,7 @@ public static class NoiseTracker
 
         if (oldNoise < MaxNoise && noise >= MaxNoise)
         {
+            Caught?.Invoke();
             Debug.Log("You got caught!");
         }
     }
