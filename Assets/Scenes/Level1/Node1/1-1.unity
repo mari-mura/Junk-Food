@@ -2307,6 +2307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1159171798}
   - component: {fileID: 1159171799}
+  - component: {fileID: 1159171800}
   m_Layer: 5
   m_Name: burdenBar
   m_TagString: Untagged
@@ -2387,6 +2388,21 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1159171800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159171797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 202b9dacc387f4f359c36ba4bf2cb5b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BurdenMeter
+  inventoryData: {fileID: 11400000, guid: e7f3cc094d1a840f5b51f4aac81cf5fd, type: 2}
+  slider: {fileID: 1159171799}
+  fillSpeed: 30
 --- !u!1 &1181898306
 GameObject:
   m_ObjectHideFlags: 0
@@ -8814,7 +8830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6d197725b3a33e4ebbb7966be1a83e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LevelExit
-  nextLevel: 1-2
+  delaySeconds: 1
 --- !u!1 &2121196992
 GameObject:
   m_ObjectHideFlags: 0
