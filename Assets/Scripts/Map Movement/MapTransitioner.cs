@@ -32,10 +32,12 @@ public static class MapTransitioner
         WorldNodeRef savePoint = SavePoints.GetSavePoint();
         if (savePoint == null)
         {
+            Debug.LogWarning("No save point");
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             return;
         }
 
+        Debug.Log("Caught, moving to save point " + savePoint.NodeId);
         arrivalNodeId = savePoint.NodeId;
         hasArrivalNode = true;
         
