@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using PressInfo = TapHoldDetector.PressInfo;
 
 public class TapHoldReceiver : MonoBehaviour
@@ -37,33 +36,30 @@ public class TapHoldReceiver : MonoBehaviour
 
     void OnTapReleased(PressInfo pressInfo)
     {
-        Debug.Log("In On Tap released");
         if (pressInfo.IsChord)
         {
-            Debug.Log("IsChord");
+            Debug.Log("CHORD TAP " + string.Join(",", pressInfo.Buttons));
 
-            //if (ChordTapped != null)
-            //{
-                Debug.Log("ChordTapped");
-                pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
-                //ChordTapped.Invoke(pressInfo);
-            //}
+            if (ChordTapped != null)
+            {
+                ChordTapped.Invoke(pressInfo);
+            }
         }
         else
         {
-            Debug.Log("Not Chord");
-            //if (SingleTapped != null)
-            //{
-                Debug.Log("SingleTapped");
-                pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
-                //SingleTapped.Invoke(pressInfo);
-            //}
+            Debug.Log("TAP");
+            if (SingleTapped != null)
+            {
+                SingleTapped.Invoke(pressInfo);
+            }
         }
+
+        pathSession.SubmitTap(pressInfo.Buttons, player.transform.position);
     }
 
     void OnHoldStarted(PressInfo pressInfo)
     {
-        Log("HOLD START " + pressInfo.Buttons[0]);
+        Log("HOLD START " + string.Join(",", pressInfo.Buttons));
         buttonHold.StartHold();
 
         if (HoldStarted != null)
@@ -71,20 +67,20 @@ public class TapHoldReceiver : MonoBehaviour
             HoldStarted.Invoke(pressInfo);
         }
         
-        pathSession.SubmitPress(pressInfo.Buttons, player.transform.position);
+        pathSession.SubmitHoldStart(pressInfo.Buttons, player.transform.position);
     }
 
     void OnHoldEnded(PressInfo pressInfo)
     {
-        Log("HOLD END " + pressInfo.Buttons[0]);
+        Log("HOLD END " + string.Join(",", pressInfo.Buttons));
         buttonHold.StopHold();
 
         if (HoldEnded != null)
         {
             HoldEnded.Invoke(pressInfo);
         }
+        
         pathSession.SubmitRelease(pressInfo.Buttons, player.transform.position);
-
     }
 
     void Log(string message)

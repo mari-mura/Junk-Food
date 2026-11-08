@@ -65,7 +65,15 @@ public class PathSession: MonoBehaviour
         }
     }
 
-    public PathResult SubmitPress(List<string> pressedButtons, Vector2 playerPosition)
+    public PathResult SubmitTap(List<string> pressedButtons, Vector2 playerPosition){
+        return SubmitPress(pressedButtons, playerPosition, false);
+    }
+    
+    public PathResult SubmitHoldStart(List<string> pressedButtons, Vector2 playerPosition){
+        return SubmitPress(pressedButtons, playerPosition, true);
+    }
+    
+    public PathResult SubmitPress(List<string> pressedButtons, Vector2 playerPosition, bool isHolding)
     {
         if (targetPoint == null || pressedButtons == null || pressedButtons.Count == 0)
         {
@@ -77,16 +85,17 @@ public class PathSession: MonoBehaviour
             return ignoredResult;
         }
 
+        if (IsHoldStartType(targetPoint.Type) != isHolding)
+        {
+            return ignoredResult;
+        }
+        
         HitGrade grade = judge.Judge(playerPosition, targetPoint);
         
         if (grade == HitGrade.Miss)
         {
             return ignoredResult;
         }
-
-        GameObject popupObject = Instantiate(floatTextPrefab, playerPosition, Quaternion.identity);
-        FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
-        floatAndFade.SetText(grade.ToString(),Color.green);
         
         PathEdge chosenEdge = null;
 
@@ -117,6 +126,7 @@ public class PathSession: MonoBehaviour
             heldButtons = new List<string>(pressedButtons);
         }
 
+        ShowPopup(grade, playerPosition);
         return CompletePoint(grade, chosenEdge, playerPosition);
     }
 
@@ -140,9 +150,7 @@ public class PathSession: MonoBehaviour
         isHolding = false;
         
         HitGrade grade = judge.Judge(playerPosition, targetPoint);
-        GameObject popupObject = Instantiate(floatTextPrefab, playerPosition, Quaternion.identity);
-        FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
-        floatAndFade.SetText(grade.ToString(),Color.green);
+        ShowPopup(grade, playerPosition);
         return CompletePoint(grade, null, playerPosition);
     }
 
@@ -160,10 +168,23 @@ public class PathSession: MonoBehaviour
         }
 
         isHolding = false;
-        GameObject popupObject = Instantiate(floatTextPrefab, playerPosition, Quaternion.identity);
-        FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
-        floatAndFade.SetText("Miss", Color.red);
+        ShowPopup(HitGrade.Miss, playerPosition);
         return CompletePoint(HitGrade.Miss, null, playerPosition);
+    }
+
+    private void ShowPopup(HitGrade grade, Vector2 position)
+    {
+        GameObject popupObject = Instantiate(floatTextPrefab, position, Quaternion.identity);
+        FloatAndFade floatAndFade = popupObject.GetComponent<FloatAndFade>();
+
+        Color textColor = Color.green;
+        if (grade == HitGrade.Miss)
+        {
+            textColor = Color.red;
+        }
+        
+        floatAndFade.SetText(grade.ToString(), textColor);
+
     }
 
     private PathResult CompletePoint(HitGrade grade, PathEdge chosenEdge, Vector2 playerPosition)
