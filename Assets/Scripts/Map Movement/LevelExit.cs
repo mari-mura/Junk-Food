@@ -32,6 +32,7 @@ public class LevelExit : MonoBehaviour
 
     private void OnCaught()
     {
+        Debug.Log("Caught handler ran");
         if (isLeaving)
         {
             return;

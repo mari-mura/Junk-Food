@@ -15,8 +15,16 @@ public class InventoryData : ScriptableObject
     [SerializeField] private int maxSlots = 12;
     [SerializeField] private List<Entry> entries = new List<Entry>();
 
+    [Header("Burden")]
+    // every object weighs the same for now but we can change this
+    [SerializeField] private float burdenPerObject = 10f;
+    // burden bar value is set to 100 but we can also change this depending on how much we want to limit inventory
+    [SerializeField] private float maxBurden = 100f;
+
     public IReadOnlyList<Entry> Entries => entries;
-    
+    public float MaxBurden => maxBurden;
+
+    // The UI subscribes so it only redraws when something changes.
     public event Action Changed;
 
     private void OnEnable()
@@ -36,7 +44,7 @@ public class InventoryData : ScriptableObject
             Changed?.Invoke();
             return true;
         }
-
+        
         // full inventory
         if (entries.Count >= maxSlots) return false;
 
@@ -64,7 +72,21 @@ public class InventoryData : ScriptableObject
 
     public bool Has(Collectible_ItemSO item, int quantity = 1) => GetQuantity(item) >= quantity;
 
-    // swaps items in inventory
+    // total weight of objects carried
+    public float GetBurden()
+    {
+        int objects = 0;
+        foreach (Entry e in entries) objects += e.quantity;
+        return objects * burdenPerObject;
+    }
+
+    // 0 when empty 1 at full burden
+    public float GetBurden01()
+    {
+        return maxBurden <= 0f ? 0f : Mathf.Clamp01(GetBurden() / maxBurden);
+    }
+
+    // swaps dirty item to clean item
     public bool TryConvert(Collectible_ItemSO from, Collectible_ItemSO to)
     {
         if (from == null || to == null || from == to) return false;
@@ -86,7 +108,8 @@ public class InventoryData : ScriptableObject
         Changed?.Invoke();
         return true;
     }
-    
+
+    // call when new game is started
     public void Clear()
     {
         entries.Clear();
