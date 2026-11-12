@@ -73,7 +73,8 @@ public class PathSession: MonoBehaviour
         return SubmitPress(pressedButtons, playerPosition, true);
     }
     
-    public PathResult SubmitPress(List<string> pressedButtons, Vector2 playerPosition, bool isHolding)
+    // isHold is a variable only used in the SubmitPress function, it should not be used anywhere else. The variable you are looking for is called "isHolding" and is declared at the top of the script
+    private PathResult SubmitPress(List<string> pressedButtons, Vector2 playerPosition, bool isHold)
     {
         if (targetPoint == null || pressedButtons == null || pressedButtons.Count == 0)
         {
@@ -85,7 +86,7 @@ public class PathSession: MonoBehaviour
             return ignoredResult;
         }
 
-        if (IsHoldStartType(targetPoint.Type) != isHolding)
+        if (IsHoldStartType(targetPoint.Type) != isHold)
         {
             return ignoredResult;
         }
@@ -124,6 +125,7 @@ public class PathSession: MonoBehaviour
         {
             isHolding = true;
             heldButtons = new List<string>(pressedButtons);
+            Debug.Log("HOLD ON at " + targetPoint.UniquePointId);
         }
 
         ShowPopup(grade, playerPosition);
@@ -167,6 +169,10 @@ public class PathSession: MonoBehaviour
             return ignoredResult;
         }
 
+        if (isHolding)
+        {
+            Debug.Log("HOLD CLEARED by a miss at " + targetPoint.UniquePointId + " " + targetPoint.Type);
+        }
         isHolding = false;
         ShowPopup(HitGrade.Miss, playerPosition);
         return CompletePoint(HitGrade.Miss, null, playerPosition);

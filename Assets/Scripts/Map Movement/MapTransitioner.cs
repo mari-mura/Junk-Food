@@ -8,6 +8,9 @@ public static class MapTransitioner
 
     public static void MoveToRhythmMap(string levelId, string destinationNodeId)
     {
+        Debug.Log("Loading rhythm scene: " + levelId);
+        Debug.Log("Destination world node: " + destinationNodeId);
+
         arrivalNodeId = destinationNodeId;
         hasArrivalNode = true;
 
