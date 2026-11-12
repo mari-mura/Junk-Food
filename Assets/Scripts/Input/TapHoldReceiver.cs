@@ -47,7 +47,6 @@ public class TapHoldReceiver : MonoBehaviour
         }
         else
         {
-            Debug.Log("TAP");
             if (SingleTapped != null)
             {
                 SingleTapped.Invoke(pressInfo);
