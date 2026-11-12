@@ -131,7 +131,7 @@ ScriptedImporter:
   tileSetImportData:
   - name: building_1
     originalName: 
-    pivot: {x: 1.625, y: 0.87109375}
+    pivot: {x: 1.625, y: 1.6523438}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     customData: 
@@ -717,7 +717,7 @@ ScriptedImporter:
       additiveSortOrder: 0
       cellRect:
         x: 256
-        y: 61
+        y: 261
         width: 128
         height: 128
       spriteId: 52df59cc72b25484e9466bc61609077a
@@ -911,4 +911,4 @@ ScriptedImporter:
   generatePhysicsShape: 0
   secondarySpriteTextures: []
   previousTextureSize: {x: 256, y: 256}
-  canvasSize: {x: 416, y: 223}
+  canvasSize: {x: 416, y: 423}
