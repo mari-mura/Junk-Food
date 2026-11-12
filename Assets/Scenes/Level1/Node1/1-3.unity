@@ -9996,16 +9996,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4372994169916473193, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2290949282181513596, guid: de243b8439e664751803485a1fa537ad, type: 3}
+    - target: {fileID: 4372994169916473193, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_SortingOrder
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5735983897682723000, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5735983897682723000, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.15
       objectReference: {fileID: 0}
     - target: {fileID: 5735983897682723000, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_LocalScale.z
@@ -10017,7 +10021,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5735983897682723000, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.48
+      value: -0.63
       objectReference: {fileID: 0}
     - target: {fileID: 5735983897682723000, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10058,14 +10062,14 @@ PrefabInstance:
     - target: {fileID: 6577969833751189479, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: trashData
       value: 
-      objectReference: {fileID: 11400000, guid: 9a3a9a6ca1d5b0a42a189b8fab71246f, type: 2}
+      objectReference: {fileID: 11400000, guid: 30c14a9b248464d9ab2075c3c5f9e534, type: 2}
     - target: {fileID: 6577969833751189479, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: collectibleItemSo
       value: 
-      objectReference: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
+      objectReference: {fileID: 11400000, guid: 43dad9f1fb32c40de9291246b01138f5, type: 2}
     - target: {fileID: 8715827605262482240, guid: d108400cbe3434308b77e3feec6ba148, type: 3}
       propertyPath: m_Name
-      value: Apple Core
+      value: RottenBanana
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

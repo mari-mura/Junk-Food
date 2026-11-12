@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a58e29376d284c1a85620ce55e6a899, type: 3}
+  m_Name: Brown_Banana
+  m_EditorClassIdentifier: Assembly-CSharp::Collectible_ItemSO
+  itemName: Brown Banana
+  itemDescription: 
+  icon: {fileID: -5460992702615823656, guid: 07e2d154ae55d45cdb8e10c4a78e3140, type: 3}
+  washedVersion: {fileID: 0}
+  rarity: 2
