@@ -128,6 +128,11 @@ public class TransitionTester : MonoBehaviour
             else
             {
                 Debug.Log(currentNodeId + " -> " + edge.TargetNodeId + " plays level " + edge.LevelId);
+                
+                Debug.Log("Current node: " + node.NodeId);
+                Debug.Log("Next level ID: " + edge.LevelId);
+                Debug.Log("Next destination node: " + edge.TargetNodeId);
+                
                 MapTransitioner.MoveToRhythmMap(edge.LevelId, edge.TargetNodeId);
             }
 
