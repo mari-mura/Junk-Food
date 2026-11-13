@@ -2688,7 +2688,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   burdenSlider: {fileID: 1435665507}
   pickupSound: {fileID: 8300000, guid: 1b5701624f9a67248bc2eabba6811756, type: 3}
-  bag: {fileID: 0}
+  bag: {fileID: 42981624}
   volume: 0.2
   volumeIncrease: 0.05
   growAmount: 0.1

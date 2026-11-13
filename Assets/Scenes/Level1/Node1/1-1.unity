@@ -360,7 +360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DebugConsole
   ToggleOverlay: 65
   ReloadScene: 98
-  Follower: {fileID: 0}
+  Follower: {fileID: 294056167}
 --- !u!4 &52571146
 Transform:
   m_ObjectHideFlags: 0
@@ -3133,7 +3133,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameController
   burdenSlider: {fileID: 1435665507}
   pickupSound: {fileID: 8300000, guid: 1b5701624f9a67248bc2eabba6811756, type: 3}
-  bag: {fileID: 0}
+  bag: {fileID: 42981624}
   volume: 0.2
   volumeIncrease: 0.05
   growAmount: 0.1

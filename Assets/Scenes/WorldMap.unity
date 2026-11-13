@@ -59345,6 +59345,7 @@ MonoBehaviour:
   ToggleOverlay: 65
   ReloadScene: 98
   Follower: {fileID: 0}
+  Inventory: {fileID: 11400000, guid: e7f3cc094d1a840f5b51f4aac81cf5fd, type: 2}
 --- !u!4 &1161414994
 Transform:
   m_ObjectHideFlags: 0
