@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d066df0dc99c3074e8bce66304c33fcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SceneTransporter
-  levelName: TB_Overworld
+  levelName: WorldMap
   overworld: {fileID: 0}
 --- !u!1 &1740220814
 GameObject:
