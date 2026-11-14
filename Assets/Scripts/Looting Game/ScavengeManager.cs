@@ -1,31 +1,42 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 public class ScavengeManager : MonoBehaviour
 {
     [SerializeField] private InventoryData inventoryData;
-    [SerializeField] private DumpsterSO testDumpster;
+    [SerializeField] private DumpsterSO dumpster;
+    
+    [SerializeField] private string overworldScene = "WorldMap";
     
     [SerializeField] private ScavengeItem itemPrefab;
     [SerializeField] private JunkPiece[] junkPrefabs;
     
     [SerializeField] private BoxCollider2D spawnArea;
+    
+    [SerializeField, Min(0)] private int junkCount = 15;
     [SerializeField, Min(0)] private int junkOverEachItem = 2;
-    [SerializeField, Min(0)] private int extraJunk = 8;
-
+    
     [SerializeField] private TMP_Text noticeText;
     [SerializeField] private Button leaveButton;
     [SerializeField] private float noticeSeconds = 2f;
+    [SerializeField] private float playSeconds = 30f;
+    [SerializeField] private TMP_Text timerText;
+
+    private float timeLeft;
+    private bool timeUp;
 
     private Camera cam;
     private Transform dragging;
     private Vector2 dragOffset;
     private int topOrder = 10;
     private Coroutine noticeRoutine;
+    private int junkLeft;
+    private int junkSpawned;
+    private bool junkRanShort;
 
     private void Start()
     {
@@ -37,22 +48,28 @@ public class ScavengeManager : MonoBehaviour
         noticeText.text = "";
         leaveButton.onClick.AddListener(Leave);
 
-        DumpsterSO dumpster = ScavengeSession.Dumpster != null ? ScavengeSession.Dumpster : testDumpster;
-        if (dumpster == null || dumpster.lootTable == null)
-        {
-            Debug.LogWarning("no dumpster", this);
-            return;
-        }
-
-        SpawnItems(dumpster);
-        for (int i = 0; i < extraJunk; i++)
-        {
-            SpawnJunk(RandomPoint());
-        }
+        junkLeft = junkCount;
+        int itemsSpawned = SpawnItems();
+        
+        while (TrySpawnJunk(RandomPoint())) { }
+        timeLeft = playSeconds;
     }
-
+    
     private void Update()
     {
+        if (timeUp) return;
+
+        if (timeLeft > 0f)
+        {
+            timeLeft -= Time.deltaTime;
+            if (timerText != null) timerText.text = Mathf.CeilToInt(Mathf.Max(timeLeft, 0f)).ToString();
+
+            if (timeLeft <= 0f)
+            {
+                StartCoroutine(TimeUpRoutine());
+                return;
+            }
+        }
         Mouse mouse = Mouse.current;
         if (mouse == null) return;
 
@@ -66,8 +83,10 @@ public class ScavengeManager : MonoBehaviour
             else dragging = null;
         }
     }
-    private void SpawnItems(DumpsterSO dumpster)
+
+    private int SpawnItems()
     {
+        int spawned = 0;
         int count = Random.Range(dumpster.minItems, dumpster.maxItems + 1);
         for (int i = 0; i < count; i++)
         {
@@ -79,34 +98,46 @@ public class ScavengeManager : MonoBehaviour
             }
 
             Vector2 position = RandomPoint();
-            Instantiate(itemPrefab, position, Quaternion.identity).Setup(item, quantity);
-            
+            ScavengeItem spawnedItem = Instantiate(itemPrefab, position, Quaternion.identity);
+            spawnedItem.Setup(item, quantity);
+            FitColliderToSprite(spawnedItem.gameObject);
+            spawned++;
+
+            // bury it
             for (int j = 0; j < junkOverEachItem; j++)
             {
-                SpawnJunk(position + Random.insideUnitCircle * 0.3f);
+                if (!TrySpawnJunk(position + Random.insideUnitCircle * 0.3f))
+                {
+                    junkRanShort = true;
+                    break;
+                }
             }
         }
-    }
 
-    private void SpawnJunk(Vector2 position)
+        return spawned;
+    }
+    private bool TrySpawnJunk(Vector2 position)
     {
-        if (junkPrefabs.Length == 0) return;
+        if (junkLeft <= 0) return false;
 
         JunkPiece prefab = junkPrefabs[Random.Range(0, junkPrefabs.Length)];
         JunkPiece junk = Instantiate(prefab, position, Quaternion.Euler(0f, 0f, Random.Range(0f, 360f)));
         junk.GetComponent<SpriteRenderer>().sortingOrder = ++topOrder;
-    }
 
+        junkLeft--;
+        junkSpawned++;
+        return true;
+    }
     private Vector2 RandomPoint()
     {
         Bounds b = spawnArea.bounds;
         return new Vector2(Random.Range(b.min.x, b.max.x), Random.Range(b.min.y, b.max.y));
     }
+
     private void OnPress(Vector2 world)
     {
-        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return;
-
-        Collider2D top = GetTopmost(Physics2D.OverlapPointAll(world));
+        Collider2D[] hits = Physics2D.OverlapPointAll(world);
+        Collider2D top = GetTopmost(hits);
         if (top == null) return;
 
         if (top.TryGetComponent(out JunkPiece junk))
@@ -120,7 +151,6 @@ public class ScavengeManager : MonoBehaviour
             Collect(item);
         }
     }
-    
     private static Collider2D GetTopmost(Collider2D[] hits)
     {
         Collider2D best = null;
@@ -128,6 +158,8 @@ public class ScavengeManager : MonoBehaviour
 
         foreach (Collider2D hit in hits)
         {
+            if (hit.GetComponent<JunkPiece>() == null && hit.GetComponent<ScavengeItem>() == null) continue;
+
             SpriteRenderer sprite = hit.GetComponent<SpriteRenderer>();
             int order = sprite != null ? sprite.sortingOrder : int.MinValue;
             if (best == null || order > bestOrder)
@@ -138,11 +170,12 @@ public class ScavengeManager : MonoBehaviour
         }
         return best;
     }
+
     private void Collect(ScavengeItem found)
     {
         if (!inventoryData.Add(found.Item, found.Quantity))
         {
-            ShowNotice("no room in inventory");
+            ShowNotice("no room in your bag");
             return;
         }
 
@@ -162,13 +195,12 @@ public class ScavengeManager : MonoBehaviour
 
     public void Leave()
     {
-        string scene = ScavengeSession.ReturnScene;
-        if (string.IsNullOrEmpty(scene))
+        if (!Application.CanStreamedLevelBeLoaded(overworldScene))
         {
             return;
         }
 
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(overworldScene);
     }
 
     private void ShowNotice(string text)
@@ -182,5 +214,24 @@ public class ScavengeManager : MonoBehaviour
         noticeText.text = text;
         yield return new WaitForSeconds(noticeSeconds);
         noticeText.text = "";
+    }
+    
+    // resizes the collider
+    private static void FitColliderToSprite(GameObject obj)
+    {
+        BoxCollider2D box = obj.GetComponent<BoxCollider2D>();
+        SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+        if (box == null || sr == null || sr.sprite == null) return;
+
+        box.size = sr.sprite.bounds.size;
+        box.offset = sr.sprite.bounds.center;
+    }
+    private IEnumerator TimeUpRoutine()
+    {
+        timeUp = true;
+        dragging = null;
+        ShowNotice("time's up");
+        yield return new WaitForSeconds(1.5f);
+        Leave();
     }
 }

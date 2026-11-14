@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e8307fbcb89a4d729a7874ffc1f1e91, type: 3}
   m_Name: Dumpster
   m_EditorClassIdentifier: Assembly-CSharp::DumpsterSO
-  lootTable: {fileID: 0}
-  minItems: 2
-  maxItems: 4
+  lootTable: {fileID: 11400000, guid: c0aa9b51608af45c0b9b120ea6aff394, type: 2}
+  minItems: 5
+  maxItems: 10
   commonWeight: 100
-  rareWeight: 20
-  ultraRareWeight: 3
+  rareWeight: 50
+  ultraRareWeight: 20

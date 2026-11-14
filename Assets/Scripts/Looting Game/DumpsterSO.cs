@@ -4,19 +4,20 @@ using UnityEngine;
 public class DumpsterSO : ScriptableObject
 {
     public LootTableSO lootTable;
-    
+
+    [Header("How many items are hidden")]
     [Min(0)] public int minItems = 2;
     [Min(0)] public int maxItems = 4;
-    
-    [Min(0f)] public float commonWeight = 100f;
-    [Min(0f)] public float rareWeight = 20f;
-    [Min(0f)] public float ultraRareWeight = 3f;
+
+    [Header("Rarity odds (bigger = more likely)")]
+    [Min(0f)] public float commonWeight = 50f;
+    [Min(0f)] public float rareWeight = 30f;
+    [Min(0f)] public float ultraRareWeight = 20f;
 
     private void OnValidate()
     {
         if (maxItems < minItems) maxItems = minItems;
     }
-    
     public Rarity RollRarity()
     {
         float total = commonWeight + rareWeight + ultraRareWeight;
@@ -27,8 +28,8 @@ public class DumpsterSO : ScriptableObject
         if (roll < commonWeight + rareWeight) return Rarity.Rare;
         return Rarity.UltraRare;
     }
-
-    [ContextMenu("Log rarity chances")]
+    
+    [ContextMenu("log rarity chances")]
     private void LogChances()
     {
         float total = commonWeight + rareWeight + ultraRareWeight;
