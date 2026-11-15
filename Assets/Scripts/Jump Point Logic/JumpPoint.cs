@@ -24,9 +24,8 @@ public abstract class JumpPoint : PathPoint
     private bool active;
 
     // This method fully links up the other components when the point is "activated" or read
-    public void Activate(JumpTimingTracker t, TapHoldDetector d)
+    public void Activate(TapHoldDetector d)
     {
-        tracker = t;
         detector = d;
         active = true;
         OnActivate();
@@ -42,7 +41,7 @@ public abstract class JumpPoint : PathPoint
 
         if (Mathf.Abs(LastOffset) <= timingWindow) Succeed(); else Fail();
     }
-
+    
     public virtual void Update()
     {
         if (active && tracker.GetOffset() > timingWindow) Fail();
