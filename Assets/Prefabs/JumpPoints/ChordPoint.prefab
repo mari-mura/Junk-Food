@@ -161,9 +161,9 @@ GameObject:
   m_Component:
   - component: {fileID: 5824433519956261778}
   - component: {fileID: 8657928491285509987}
-  - component: {fileID: -7886321370211345199}
-  - component: {fileID: 2428866626647387291}
   - component: {fileID: 545948644783132976}
+  - component: {fileID: -6054063698791193753}
+  - component: {fileID: -2487756146039587002}
   m_Layer: 0
   m_Name: ChordPoint
   m_TagString: PathPoint
@@ -247,38 +247,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!114 &-7886321370211345199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405042193470572664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f40fb89774f1492489504c3e23d7c316, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::NoiseGenerator
-  noiseMultiplier: 1
---- !u!114 &2428866626647387291
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3405042193470572664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00d45dc48eeceb048b95416aa4af40ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ChordPoint
-  UniquePointId: 
-  Type: 0
-  IsStartPoint: 0
-  Connections: []
-  promptOverride: 
-  timingWindow: 0.5
-  approachCircle: {fileID: 545948644783132976}
 --- !u!114 &545948644783132976
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +263,42 @@ MonoBehaviour:
   approachRenderer: {fileID: 1415938524305897433}
   startScale: 2
   approachTime: 1.2
+--- !u!114 &-6054063698791193753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405042193470572664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00d45dc48eeceb048b95416aa4af40ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ChordPoint
+  UniquePointId: 
+  Type: 3
+  IsStartPoint: 0
+  Connections:
+  - TargetPointId: 
+    Button: 
+  promptOverride: 
+  timingWindow: 0.15
+  approachCircle: {fileID: 545948644783132976}
+--- !u!114 &-2487756146039587002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3405042193470572664}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f40fb89774f1492489504c3e23d7c316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::NoiseGenerator
+  noiseMultiplier: 1
+  inventoryData: {fileID: 11400000, guid: e7f3cc094d1a840f5b51f4aac81cf5fd, type: 2}
+  burdenNoiseBoost: 1
 --- !u!1 &6595159510395192131
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'D + E
+  m_text: 'D + S
 
 '
   m_isRightToLeft: 0

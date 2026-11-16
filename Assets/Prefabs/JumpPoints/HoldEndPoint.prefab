@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1088343088096827222}
   - component: {fileID: 1829871077726355845}
   m_Layer: 0
-  m_Name: HoldPoint
+  m_Name: HoldEndPoint
   m_TagString: PathPoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,9 +108,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::HoldEndPoint
   UniquePointId: 
-  Type: 0
+  Type: 2
   IsStartPoint: 0
-  Connections: []
+  Connections:
+  - TargetPointId: 
+    Button: 
   promptOverride: 
   timingWindow: 0.15
 --- !u!114 &1829871077726355845
@@ -126,6 +128,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseGenerator
   noiseMultiplier: 1
+  inventoryData: {fileID: 11400000, guid: e7f3cc094d1a840f5b51f4aac81cf5fd, type: 2}
+  burdenNoiseBoost: 1
 --- !u!1 &8669083347726537513
 GameObject:
   m_ObjectHideFlags: 0

@@ -204,6 +204,8 @@ public class PathSession: MonoBehaviour
         {
             generator.ApplyGrade(grade);
         }
+
+        targetPoint.OnJudged(grade);
         result.SignedOffset = judge.GetSignedOffset(playerPosition, targetPoint, travelDirection);
 
         PathEdge nextEdge = chosenEdge;

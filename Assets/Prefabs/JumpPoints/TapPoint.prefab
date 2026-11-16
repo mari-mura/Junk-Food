@@ -291,7 +291,9 @@ MonoBehaviour:
   UniquePointId: 
   Type: 0
   IsStartPoint: 0
-  Connections: []
+  Connections:
+  - TargetPointId: 
+    Button: 
   promptOverride: 
   timingWindow: 0.5
   approachCircle: {fileID: 619280905288938600}
@@ -324,6 +326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::NoiseGenerator
   noiseMultiplier: 1
+  inventoryData: {fileID: 11400000, guid: e7f3cc094d1a840f5b51f4aac81cf5fd, type: 2}
+  burdenNoiseBoost: 1
 --- !u!1 &5626838417861416959
 GameObject:
   m_ObjectHideFlags: 0
