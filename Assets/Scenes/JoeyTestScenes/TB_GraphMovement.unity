@@ -1197,7 +1197,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1088343088096827222, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
       propertyPath: Connections.Array.data[0].TargetPointId
-      value: chordPoint1
+      value: itemPoint
       objectReference: {fileID: 0}
     - target: {fileID: 1123589326610285854, guid: 6ab8cf6970d219345ad9e5265896fc41, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1583,7 +1583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3405042193470572664, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
       propertyPath: m_Name
-      value: ChordPoint
+      value: ItemPoint
       objectReference: {fileID: 0}
     - target: {fileID: 3405042193470572664, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
       propertyPath: m_TagString
@@ -1629,11 +1629,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6054063698791193753, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
+    - {fileID: 545948644783132976, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3405042193470572664, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1916061527}
   m_SourcePrefab: {fileID: 100100000, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
+--- !u!1 &1303733380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3405042193470572664, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
+  m_PrefabInstance: {fileID: 1303733379}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1314333057
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2261,6 +2271,7 @@ MonoBehaviour:
   ToggleOverlay: 65
   ReloadScene: 98
   Follower: {fileID: 1575898523}
+  Inventory: {fileID: 11400000, guid: e7f3cc094d1a840f5b51f4aac81cf5fd, type: 2}
 --- !u!4 &1589076313
 Transform:
   m_ObjectHideFlags: 0
@@ -2532,7 +2543,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ab3d0351387497479a01db970bac6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExitToWorldMap
-  delaySeconds: 1
 --- !u!1 &1748081337
 GameObject:
   m_ObjectHideFlags: 0
@@ -2937,6 +2947,28 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5824433519956261778, guid: 62347fb04d4167f40a67990d7f14dd38, type: 3}
   m_PrefabInstance: {fileID: 1303733379}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1916061527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303733380}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16b347d454aa1884d8f85bfb68e2eaaa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ItemJumpPoint
+  UniquePointId: itemPoint
+  Type: 3
+  IsStartPoint: 0
+  Connections:
+  - TargetPointId: choicePoint1
+    Button: 
+  promptOverride: 
+  timingWindow: 0.15
+  item: {fileID: 11400000, guid: 7cbfea660811340f493d76668e0d85a9, type: 2}
+  inventoryData: {fileID: 11400000, guid: e7f3cc094d1a840f5b51f4aac81cf5fd, type: 2}
 --- !u!1 &1953332354
 GameObject:
   m_ObjectHideFlags: 0

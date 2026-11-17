@@ -60,7 +60,8 @@ public static class MapFiles
 
     public static MapFile ReadFile()
     {
-        string json = File.ReadAllText(GetPath());
+        string path = Path.Combine(Application.streamingAssetsPath, "maps.json");
+        string json = File.ReadAllText(path);
         return JsonUtility.FromJson<MapFile>(json);
     }
 }

@@ -14,7 +14,7 @@ public class NoiseGenerator : MonoBehaviour
             HitGrade.Miss => 10f,
             HitGrade.Good => 4f,
             HitGrade.Great => 2f,
-            HitGrade.Perfect => 1f
+            HitGrade.Perfect => -1f
         };
         
         change *= noiseMultiplier;
@@ -25,14 +25,7 @@ public class NoiseGenerator : MonoBehaviour
             change *= 1f + inventoryData.GetBurden01() * burdenNoiseBoost;
         }
         
-        if (change > 0f)
-        {
             NoiseTracker.Increase(change);
-        }
-        else
-        {
-            NoiseTracker.Decrease(change);
-        }
     }
     
 }

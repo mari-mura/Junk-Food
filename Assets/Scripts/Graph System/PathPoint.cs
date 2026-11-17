@@ -71,6 +71,10 @@ public class PathPoint : MonoBehaviour
         }
         return null;
     }
+    
+    public virtual void OnJudged(HitGrade grade)
+    {
+    }
 
     public override string ToString()
     {

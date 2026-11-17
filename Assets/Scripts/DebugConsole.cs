@@ -9,9 +9,10 @@ public class DebugConsole : MonoBehaviour
     public Key ReloadScene = Key.F5;
     
     public PathFollower Follower;
+    public InventoryData Inventory;
     
     private bool visible = false;
-    private Rect windowRectangle = new Rect(20, 20, 330, 295);
+    private Rect windowRectangle = new Rect(20, 20, 330, 330);
     private string sceneToLoad = "";
     private string noiseText = "10";
     private string speedText = "300";
@@ -67,6 +68,7 @@ public class DebugConsole : MonoBehaviour
         DrawNoiseControls();
         DrawMovementControls();
         DrawSceneControls();
+        DrawInventoryControls();
         
         GUI.DragWindow(new Rect(0, 0, 10000, 20));
     }
@@ -177,6 +179,14 @@ public class DebugConsole : MonoBehaviour
             LoadScene(sceneToLoad);
         }
     }
+    
+    private void DrawInventoryControls()
+    {
+        if (GUI.Button(new Rect(10, 290, 150, 22), "Clear inventory"))
+        {
+            ClearInventory();
+        }
+    }
 
     private void ReloadActiveScene()
     {
@@ -211,5 +221,18 @@ public class DebugConsole : MonoBehaviour
             return parsedValue;
         }
         return defaultValue;
+    }
+    
+    private void ClearInventory()
+    {
+        InventoryData inventory = Inventory;
+        
+        if (inventory == null)
+        {
+            return;
+        }
+
+        inventory.Clear();
+        Debug.Log("Inventory cleared");
     }
 }
