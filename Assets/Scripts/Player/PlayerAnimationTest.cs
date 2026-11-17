@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class PlayerAnimationTest : MonoBehaviour
 {
+    // Despite the name, this is NOT the Test script
+    
     [SerializeField] private Animator animator;
     //[SerializeField] private QuickTimeUI quickTimeUI;
     

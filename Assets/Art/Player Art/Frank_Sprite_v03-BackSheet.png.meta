@@ -1,0 +1,431 @@
+fileFormatVersion: 2
+guid: 38e00d0b6a8e7461f80c76aa70239b34
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4546070127410583463
+    second: Frank_Sprite_v03-BackSheet_0
+  - first:
+      213: 7414062831306859208
+    second: Frank_Sprite_v03-BackSheet_1
+  - first:
+      213: 2442222155474409909
+    second: Frank_Sprite_v03-BackSheet_2
+  - first:
+      213: 5403161556368222050
+    second: Frank_Sprite_v03-BackSheet_3
+  - first:
+      213: 5271221630619874972
+    second: Frank_Sprite_v03-BackSheet_4
+  - first:
+      213: -3796444767376954271
+    second: Frank_Sprite_v03-BackSheet_5
+  - first:
+      213: 4768772886358508995
+    second: Frank_Sprite_v03-BackSheet_6
+  - first:
+      213: 1910197341595078013
+    second: Frank_Sprite_v03-BackSheet_7
+  - first:
+      213: 3960082140694576222
+    second: Frank_Sprite_v03-BackSheet_8
+  - first:
+      213: 6342062935421291767
+    second: Frank_Sprite_v03-BackSheet_9
+  - first:
+      213: -128145382373368028
+    second: Frank_Sprite_v03-BackSheet_10
+  - first:
+      213: 4765164713360621026
+    second: Frank_Sprite_v03-BackSheet_11
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_0
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 134
+        width: 66
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9586da32e4d19e0c0800000000000000
+      internalID: -4546070127410583463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_1
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 135
+        width: 67
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c2e87a1dda04e660800000000000000
+      internalID: 7414062831306859208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_2
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 134
+        width: 66
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b914a76c1484e120800000000000000
+      internalID: 2442222155474409909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_3
+      rect:
+        serializedVersion: 2
+        x: 245
+        y: 133
+        width: 65
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 267ef5feec2ebfa40800000000000000
+      internalID: 5403161556368222050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_4
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 70
+        width: 58
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c96f3791524272940800000000000000
+      internalID: 5271221630619874972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_5
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 69
+        width: 63
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16c2b173991505bc0800000000000000
+      internalID: -3796444767376954271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_6
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 70
+        width: 67
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c5c9e19ca51e2240800000000000000
+      internalID: 4768772886358508995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_7
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 77
+        width: 67
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7d8bac8c52628a10800000000000000
+      internalID: 1910197341595078013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_8
+      rect:
+        serializedVersion: 2
+        x: 322
+        y: 77
+        width: 67
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5cf77db9b905f630800000000000000
+      internalID: 3960082140694576222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_9
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 76
+        width: 67
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7fc05f853a8830850800000000000000
+      internalID: 6342062935421291767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_10
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 6
+        width: 67
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42f5704247cb83ef0800000000000000
+      internalID: -128145382373368028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Frank_Sprite_v03-BackSheet_11
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 6
+        width: 62
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2edf5145f04412240800000000000000
+      internalID: 4765164713360621026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Frank_Sprite_v03-BackSheet_0: -4546070127410583463
+      Frank_Sprite_v03-BackSheet_1: 7414062831306859208
+      Frank_Sprite_v03-BackSheet_10: -128145382373368028
+      Frank_Sprite_v03-BackSheet_11: 4765164713360621026
+      Frank_Sprite_v03-BackSheet_2: 2442222155474409909
+      Frank_Sprite_v03-BackSheet_3: 5403161556368222050
+      Frank_Sprite_v03-BackSheet_4: 5271221630619874972
+      Frank_Sprite_v03-BackSheet_5: -3796444767376954271
+      Frank_Sprite_v03-BackSheet_6: 4768772886358508995
+      Frank_Sprite_v03-BackSheet_7: 1910197341595078013
+      Frank_Sprite_v03-BackSheet_8: 3960082140694576222
+      Frank_Sprite_v03-BackSheet_9: 6342062935421291767
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
