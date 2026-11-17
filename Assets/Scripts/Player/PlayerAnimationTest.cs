@@ -1,5 +1,5 @@
 using UnityEngine;
-
+/*
 public class PlayerAnimationTest : MonoBehaviour
 {
     // Despite the name, this is NOT the Test script
@@ -7,8 +7,6 @@ public class PlayerAnimationTest : MonoBehaviour
     [SerializeField] private Animator animator;
     //[SerializeField] private QuickTimeUI quickTimeUI;
     
-    [SerializeField] private PlayerJumpController controller;
-    [SerializeField] private Mover mover;
     [SerializeField] private TapHoldReceiver input;
 
     private void OnEnable()
@@ -86,3 +84,4 @@ public class PlayerAnimationTest : MonoBehaviour
         animator.Play("Fail");
     }
 }
+*/
