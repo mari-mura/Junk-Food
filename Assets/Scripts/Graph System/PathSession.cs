@@ -13,6 +13,7 @@ public class PathSession: MonoBehaviour
 
     private PathResult ignoredResult = new PathResult();
     public static event System.Action OnPathFinished;
+    public static event System.Action<PathResult> OnPointJudged;
 
     public PathPoint CurrentTarget
     {
@@ -232,6 +233,11 @@ public class PathSession: MonoBehaviour
         if (isFinished && OnPathFinished != null)
         {
             OnPathFinished.Invoke();
+        }
+        
+        if (OnPointJudged != null)
+        {
+            OnPointJudged.Invoke(result);
         }
         
         return result;
