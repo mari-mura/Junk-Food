@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public static class NoiseTracker
 {
@@ -10,6 +11,16 @@ public static class NoiseTracker
 
     private static float noise;
 
+    static NoiseTracker()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private static void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        Reset();
+        Debug.Log("Noise reset");
+    }
     public static float Noise
     {
         get { return noise; }

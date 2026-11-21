@@ -11,6 +11,7 @@ public class HitJudge
 {
     public float PerfectDistance;
     public float GoodDistance;
+    public float SpamDistance;
 
     public HitJudge(float perfectDistanceInput, float goodDistanceInput)
     {

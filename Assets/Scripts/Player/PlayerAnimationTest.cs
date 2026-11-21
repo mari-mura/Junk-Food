@@ -2,58 +2,84 @@ using UnityEngine;
 
 public class PlayerAnimationTest : MonoBehaviour
 {
-    // Despite the name, this is NOT the Test script
-    
     [SerializeField] private Animator animator;
-    //[SerializeField] private QuickTimeUI quickTimeUI;
     
-    [SerializeField] private PlayerJumpController controller;
-    [SerializeField] private Mover mover;
+    [SerializeField] private PathFollower follower;
+
     [SerializeField] private TapHoldReceiver input;
+    
+    [SerializeField] private float moveSpeed = 0.05f;
+
+    private Vector3 lastPosition;
+    private bool isWalking = false;
 
     private void OnEnable()
     {
-        controller.PointSucceeded += OnSucceed;
-        controller.PointFailed += OnFail;
-        mover.JumpStarted += OnJumpStarted;
-        mover.Landed += OnLanded;
-        input.HoldStarted += OnHoldStart;
-        input.HoldEnded += OnHoldEnd;
+        PathSession.OnPointJudged += OnPointJudged;
+        PathSession.OnPathFinished += OnPathFinished;
+
+        if (input != null)
+        {
+            input.HoldStarted += OnHoldStart;
+            input.HoldEnded += OnHoldEnd;
+        }
+
+        if (follower != null)
+        {
+            lastPosition = follower.transform.position;
+        }
     }
 
     private void OnDisable()
     {
-        controller.PointSucceeded -= OnSucceed;
-        controller.PointFailed -= OnFail;
-        mover.JumpStarted -= OnJumpStarted;
-        mover.Landed -= OnLanded;
-        input.HoldStarted -= OnHoldStart;
-        input.HoldEnded -= OnHoldEnd;
-    }
+        PathSession.OnPointJudged -= OnPointJudged;
+        PathSession.OnPathFinished -= OnPathFinished;
 
-    // A jump just started
-    private void OnJumpStarted(float duration)
+        if (input != null)
+        {
+            input.HoldStarted -= OnHoldStart;
+            input.HoldEnded -= OnHoldEnd;
+        }
+    }
+    
+    private void LateUpdate()
     {
-        WalkAnimStart();
+        if (follower == null)
+        {
+            return;
+        }
+        
+        bool moving = false;
+        if (Time.deltaTime > 0f)
+        {
+            float speed = (follower.transform.position - lastPosition).magnitude / Time.deltaTime;
+            moving = speed > moveSpeed;
+        }
+
+        lastPosition = follower.transform.position;
+
+        bool pathRunning = follower.Session != null && follower.Session.IsFinished == false;
+        SetWalking(moving && pathRunning);
     }
 
-    // Touched down
-    private void OnLanded()
+    // A point on the path was judged (hit or miss)
+    private void OnPointJudged(PathResult result)
+    {
+        if (result.Grade == HitGrade.Miss)
+        {
+            //quickTimeUI.ButtonMissedAnim();
+            FailAnim();
+        }
+        else
+        {
+            //quickTimeUI.ButtonWinAnim();
+        }
+    }
+
+    // The player reached the end of the path
+    private void OnPathFinished()
     {
         IdleAnimStart();
-    }
-
-    // The player hit the timing window
-    private void OnSucceed(JumpPoint point)
-    {
-        //quickTimeUI.ButtonWinAnim();
-    }
-
-    // The player missed the timing window.
-    private void OnFail(JumpPoint point)
-    {
-        //quickTimeUI.ButtonMissedAnim();
-        FailAnim();
     }
 
     // The button is held down
@@ -67,22 +93,33 @@ public class PlayerAnimationTest : MonoBehaviour
     {
         //quickTimeUI.ButtonDefaultAnim();
     }
-    
+
     // IDLE
     void IdleAnimStart()
     {
-        animator.SetBool("isWalking", false);
+        SetWalking(false);
     }
 
     // WALK
     void WalkAnimStart()
     {
-        animator.SetBool("isWalking", true);
+        SetWalking(true);
     }
 
     // FAIL
     void FailAnim()
     {
         animator.Play("Fail");
+    }
+    
+    private void SetWalking(bool walking)
+    {
+        if (walking == isWalking)
+        {
+            return;
+        }
+
+        isWalking = walking;
+        animator.SetBool("isWalking", walking);
     }
 }
